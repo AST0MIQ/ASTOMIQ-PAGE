@@ -1,1160 +1,2716 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ASTOMIQ · Software built to the tolerance it deserves</title>
-<meta name="description" content="ASTOMIQ is a software house that builds custom software, web and mobile apps, cloud infrastructure, and AI systems, calibrated to your product and shipped on schedule.">
-<meta name="theme-color" content="#050505">
-<!-- DEPLOY STEP: replace these two with the live URL once the site is deployed -->
-<meta property="og:title" content="ASTOMIQ">
-<meta property="og:description" content="A software house that treats every build like an instrument: calibrated, measured, and shipped on schedule.">
-<meta property="og:image" content="assets/hero-ending.jpg">
-<meta property="og:url" content="">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23050505'/%3E%3Cpath d='M50 12 L88 82 L72 82 L50 44 L28 82 L12 82 Z' fill='%2300e5ff'/%3E%3Cpath d='M50 58 L64 82 L55 82 L50 72 L45 82 L36 82 Z' fill='%2300e5ff'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --canvas:#050505;
-  --canvas-2:#0d0d0f;
-  --panel:#17181c;
-  --panel-2:#1e1f24;
-  --panel-border:rgba(139,143,152,.18);
-  --accent:#00e5ff;
-  --accent-hover:#00b8d9;
-  --accent-muted:rgba(0,229,255,.32);
-  --accent-deep:#006b7a;
-  --text-primary:#f5f7fa;
-  --text-secondary:#8b8f98;
-  --text-tertiary:#5c6068;
-  --font-display:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
-  --font-body:'Manrope',ui-sans-serif,system-ui,sans-serif;
-  --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;
-  --ease-out:cubic-bezier(.16,.9,.28,1);
-  --ease-in-out:cubic-bezier(.6,0,.2,1);
-  --tshadow:0 1px 2px rgba(5,5,10,.95),0 3px 12px rgba(5,5,10,.78),0 10px 44px rgba(5,5,10,.85);
-}
-*,*::before,*::after{box-sizing:border-box}
-html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth}
-body{
-  margin:0;background:var(--canvas);color:var(--text-primary);
-  font-family:var(--font-body);font-size:16px;line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-}
-h1,h2,h3{font-family:var(--font-display);font-weight:600;letter-spacing:-.01em;margin:0}
-p{margin:0}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.mono{font-family:var(--font-mono);letter-spacing:.06em;text-transform:uppercase}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ASTOMIQ · Software House</title>
+  <meta name="description"
+    content="ASTOMIQ is a software house that builds custom software, web and mobile apps, cloud infrastructure, and AI systems, calibrated to your product and shipped on schedule.">
+  <meta name="theme-color" content="#050505">
+  <!-- DEPLOY STEP: replace these two with the live URL once the site is deployed -->
+  <meta property="og:title" content="ASTOMIQ · Software House">
+  <meta property="og:description"
+    content="A software house that treats every build like an instrument: calibrated, measured, and shipped on schedule.">
+  <meta property="og:image" content="assets/hero-ending.jpg">
+  <meta property="og:url" content="">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23050505'/%3E%3Cpath d='M50 12 L88 82 L72 82 L50 44 L28 82 L12 82 Z' fill='%2300e5ff'/%3E%3Cpath d='M50 58 L64 82 L55 82 L50 72 L45 82 L36 82 Z' fill='%2300e5ff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --canvas: #050505;
+      --canvas-2: #0d0d0f;
+      --panel: #17181c;
+      --panel-2: #1e1f24;
+      --panel-border: rgba(139, 143, 152, .18);
+      --accent: #00e5ff;
+      --accent-hover: #00b8d9;
+      --accent-muted: rgba(0, 229, 255, .32);
+      --accent-deep: #006b7a;
+      --text-primary: #f5f7fa;
+      --text-secondary: #8b8f98;
+      --text-tertiary: #5c6068;
+      --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+      --font-body: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+      --font-display-th: 'IBM Plex Sans Thai', ui-sans-serif, system-ui, sans-serif;
+      --font-body-th: 'IBM Plex Sans Thai', ui-sans-serif, system-ui, sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+      --ease-out: cubic-bezier(.16, .9, .28, 1);
+      --ease-in-out: cubic-bezier(.6, 0, .2, 1);
+      --tshadow: 0 1px 2px rgba(5, 5, 10, .95), 0 3px 12px rgba(5, 5, 10, .78), 0 10px 44px rgba(5, 5, 10, .85);
+    }
 
-/* ---------- skip link / focus ---------- */
-.skip-link{position:absolute;left:0;top:0;transform:translateY(-140%);background:var(--accent);color:#00181c;padding:.8em 1.2em;z-index:200;border-radius:0 0 8px 0;transition:transform .25s var(--ease-out)}
-.skip-link:focus{transform:translateY(0)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+    html[lang="th"] {
+      --font-display: var(--font-display-th);
+      --font-body: var(--font-body-th)
+    }
 
-/* ---------- custom cursor ---------- */
-.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:300;border-radius:50%;opacity:0}
-.cursor-dot{width:7px;height:7px;background:var(--accent);box-shadow:0 0 10px 1px var(--accent-muted);transition:opacity .3s}
-.cursor-ring{width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid var(--accent-muted);transition:opacity .3s,width .3s var(--ease-out),height .3s var(--ease-out),margin .3s var(--ease-out),border-color .3s,background .3s}
-.cursor-ring.hover{width:58px;height:58px;margin:-29px 0 0 -29px;border-color:var(--accent);background:rgba(0,229,255,.07)}
-body.custom-cursor,body.custom-cursor a,body.custom-cursor button,body.custom-cursor .dial{cursor:none}
-@media (pointer:coarse){.cursor-dot,.cursor-ring{display:none !important}}
+    /* Thai combining vowels/tone marks stack above and below the base letter, so
+   headings need noticeably more line-height than Latin text or a wrapped
+   line's marks collide with the line above it. */
+    html[lang="th"] .band h1,
+    html[lang="th"] .band h2 {
+      line-height: 1.5
+    }
 
-/* ---------- fixed background environment layer (signature) ---------- */
-.env{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.env::before{
-  content:"";position:absolute;inset:-10%;
-  background:radial-gradient(ellipse 60% 40% at 78% 8%,rgba(0,229,255,.08),transparent 60%),
-             radial-gradient(ellipse 70% 55% at 15% 90%,rgba(0,107,122,.28),transparent 65%);
-  animation:envdrift 70s ease-in-out infinite alternate;
-  animation-delay:-20s;
-}
-@keyframes envdrift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-2%,1.5%,0) scale(1.04)}}
-.env .ticks{position:absolute;inset:0;opacity:.5}
-.env .ticks svg{position:absolute;top:50%;left:50%;width:min(160vw,1800px);height:min(160vw,1800px);transform:translate(-50%,-50%);animation:ticksspin 220s linear infinite;animation-delay:-40s}
-@keyframes ticksspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+    html[lang="th"] .sec-head h2 {
+      line-height: 1.55
+    }
 
-/* ---------- nav ---------- */
-header.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1em clamp(1.2em,4vw,2.6em);display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(10px);background:linear-gradient(rgba(10,13,32,.55),rgba(10,13,32,0));transition:background .3s}
-header.nav .word{font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.02em;display:flex;align-items:center;gap:.55em}
-header.nav .word .mark{width:24px;height:24px;flex:none;object-fit:contain}
-header.nav nav{display:flex;gap:2em;align-items:center}
-header.nav nav a{font-size:.9rem;color:var(--text-secondary);transition:color .2s}
-header.nav nav a:hover{color:var(--text-primary)}
-header.nav .navlinks{display:flex;gap:1.8em}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.5em;
-  font-family:var(--font-body);font-weight:700;font-size:.92rem;
-  padding:.85em 1.5em;border-radius:999px;border:1px solid transparent;cursor:pointer;
-  transition:transform .35s var(--ease-out),box-shadow .35s var(--ease-out),background .25s,border-color .25s;
-  text-shadow:none;
-}
-.btn-gold{background:var(--accent);color:#00181c;box-shadow:0 0 0 0 rgba(0,229,255,0)}
-.btn-gold:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(0,229,255,.55)}
-.btn-ghost{background:transparent;border-color:var(--panel-border);color:var(--text-primary)}
-.btn-ghost:hover{border-color:var(--accent-muted);transform:translateY(-2px)}
-@media (pointer:coarse){.btn{min-height:44px}}
-@media (max-width:760px){
-  header.nav{padding:.9em 1.1em}
-  header.nav .navlinks{display:none}
-  header.nav .word{font-size:1rem}
-  header.nav .word .mark{width:19px;height:19px}
-  header.nav .btn{padding:.7em 1.1em;font-size:.85rem}
-}
+    html[lang="th"] .static-copy h1 {
+      line-height: 1.5
+    }
 
-/* ---------- hero ---------- */
-.hero{position:relative;height:950vh;z-index:1;padding:0}
-.stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#050505}
-.stage video,.stage .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.stage .poster{background-size:cover;background-position:center;opacity:1;transition:opacity .6s ease}
-.stage video{opacity:0;transition:opacity .6s ease;will-change:transform;transform:translateZ(0)}
-.stage.video-ready video{opacity:1}
-.stage.video-ready .poster{opacity:0}
-.stage .scrim{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 120% 90% at 50% 45%,rgba(9,11,26,0) 30%,rgba(9,11,26,.66) 100%)}
+    /* Thai runs noticeably wider per character than Latin at the same font
+   size, so the Latin-tuned 640px heading width wraps Thai headings a line
+   or two earlier than intended. Give Thai headings more room. */
+    html[lang="th"] .band-inner {
+      max-width: 920px
+    }
 
-.bands{position:absolute;inset:0;z-index:2}
-.band{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(1.4em,7vw,6.5em);opacity:0;pointer-events:none}
-.band::before{content:"";position:absolute;inset:-4%;pointer-events:none;opacity:calc(.35 + .65*var(--k,1));background:radial-gradient(ellipse 70% 58% at var(--sx,50%) 50%,rgba(5,6,14,.72) 0%,rgba(5,6,14,.5) 46%,rgba(5,6,14,0) 76%)}
-.band-inner{position:relative;z-index:1;max-width:640px;text-shadow:var(--tshadow)}
-.band[data-side="left"] .band-inner{margin-right:auto}
-.band[data-side="right"] .band-inner{margin-left:auto;text-align:right}
-.band .eyebrow{font-family:var(--font-mono);font-size:.72rem;color:var(--accent-hover);letter-spacing:.16em;margin-bottom:1em;display:flex;align-items:center;gap:.6em}
-.band[data-side="right"] .eyebrow{justify-content:flex-end}
-.band .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px 2px var(--accent-muted)}
-.band h1,.band h2{font-size:clamp(1.9rem,4.6vw,3.6rem);line-height:1.08;margin-bottom:.5em}
-.band p{color:var(--text-secondary);font-size:clamp(1rem,1.5vw,1.18rem);max-width:34ch}
-.band[data-side="right"] p{margin-left:auto}
-.band .cta-row{margin-top:1.6em;display:flex;gap:1em;flex-wrap:wrap}
-.band[data-side="right"] .cta-row{justify-content:flex-end}
+    html[lang="th"] .sec-head {
+      max-width: 820px
+    }
 
-/* word/char split */
-.w{display:inline-block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
-.w .cwrap{display:inline-block;white-space:pre}
-.c{display:inline-block}
-.band h1 .w,.band h2 .w{--kc:clamp(0,(var(--k,0) - var(--th,0))*2.6,1);opacity:var(--kc);transform:translateY(calc((1 - var(--kc))*22px))}
-.band .lede-w{--kc:clamp(0,(var(--k,0) - var(--th,.28))*3,1);opacity:var(--kc);display:inline-block;transform:translateY(calc((1 - var(--kc))*10px))}
-.band .cta-row{--kb:clamp(0,(var(--k,0) - .55)*4,1);opacity:var(--kb);transform:translateY(calc((1 - var(--kb))*10px))}
+    html[lang="th"] .static-copy .inner {
+      max-width: 640px
+    }
 
-/* blur to sharp entrance (band 2) */
-.blursoft{position:absolute;inset:0;filter:blur(11px);opacity:calc(1 - var(--k,0));pointer-events:none}
-.blurhard{opacity:var(--k,0)}
+    /* `ch` measures against the font's Latin "0" glyph, which under-measures
+   Thai character width badly, so these use fixed pixel widths instead. */
+    html[lang="th"] .band p {
+      max-width: 880px
+    }
 
-/* scatter entrance (band 3) */
-.scatter .c{--kc2:clamp(0,(var(--k,0) - var(--th,0))*2.8,1);opacity:var(--kc2);transform:translate(calc((1 - var(--kc2))*var(--jx,0px)),calc((1 - var(--kc2))*var(--jy,0px))) rotate(calc((1 - var(--kc2))*var(--jr,0deg)))}
+    html[lang="th"] .sec-head p {
+      max-width: 800px
+    }
 
-.static-copy{display:none;position:absolute;inset:0;z-index:3;align-items:flex-end;padding:0 clamp(1.2em,6vw,3em) clamp(3em,10vh,5em)}
-.static-copy .inner{max-width:520px;text-shadow:var(--tshadow)}
-.static-copy .eyebrow{font-family:var(--font-mono);font-size:.7rem;color:var(--accent-hover);letter-spacing:.16em;margin-bottom:.8em;display:block}
-.static-copy h1{font-size:clamp(2rem,8vw,2.6rem);line-height:1.1;margin-bottom:.45em}
-.static-copy p{color:var(--text-secondary);margin-bottom:1.3em}
+    html[lang="th"] footer p.tagline {
+      max-width: 460px
+    }
 
-.ring{position:absolute;bottom:2.2em;left:50%;transform:translateX(-50%);width:44px;height:44px;color:var(--accent);z-index:4;transition:opacity .4s}
-.ring.hide{opacity:0;pointer-events:none}
-.chevron{position:absolute;bottom:2.4em;left:50%;transform:translateX(-50%);z-index:4;color:var(--text-secondary);animation:chevbob 2.4s ease-in-out infinite}
-@keyframes chevbob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
 
-/* ---------- shared section chrome ---------- */
-main{position:relative;z-index:1;background:var(--canvas)}
-section{position:relative;padding:clamp(4.5em,10vw,8em) clamp(1.2em,6vw,4em)}
-.wrap{max-width:1180px;margin:0 auto}
-.kicker{font-family:var(--font-mono);font-size:.74rem;color:var(--accent);letter-spacing:.16em;margin-bottom:1em;display:block}
-.sec-head{max-width:640px;margin-bottom:clamp(2.4em,6vw,3.6em)}
-.sec-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.14;margin-bottom:.5em}
-.sec-head p{color:var(--text-secondary);font-size:1.06rem;max-width:52ch}
+    html {
+      overflow-x: hidden;
+      overflow-x: clip;
+      scroll-behavior: smooth
+    }
 
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
-.reveal.in{opacity:1;transform:none}
-.reveal-left{opacity:0;transform:translateX(-34px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}
-.reveal-left.in{opacity:1;transform:none}
-.reveal-right{opacity:0;transform:translateX(34px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}
-.reveal-right.in{opacity:1;transform:none}
-.reveal-scale{opacity:0;transform:scale(.92) translateY(14px);transition:opacity .75s var(--ease-out),transform .75s var(--ease-out)}
-.reveal-scale.in{opacity:1;transform:none}
-.stagger-scale > *{opacity:0;transform:scale(.9);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
-.stagger-scale.in > *{opacity:1;transform:none}
-.stagger-scale.in > *:nth-child(1){transition-delay:0ms}
-.stagger-scale.in > *:nth-child(2){transition-delay:80ms}
-.stagger-scale.in > *:nth-child(3){transition-delay:160ms}
-.stagger > *{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
-.stagger.in > *{opacity:1;transform:none}
-.stagger.in > *:nth-child(1){transition-delay:0ms}
-.stagger.in > *:nth-child(2){transition-delay:90ms}
-.stagger.in > *:nth-child(3){transition-delay:180ms}
-.stagger.in > *:nth-child(4){transition-delay:270ms}
-.stagger.in > *:nth-child(5){transition-delay:360ms}
-.stagger.in > *:nth-child(6){transition-delay:450ms}
-body.stagger-settled .stagger > *,body.stagger-settled .stagger-scale > *{transition-delay:0ms !important}
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
 
-/* divider line, self drawing */
-.divider{width:100%;height:2px;margin:0 auto}
-.divider path{fill:none;stroke:var(--panel-border);stroke-width:1;vector-effect:non-scaling-stroke}
-.divider path.gold{stroke:var(--accent);stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 1.6s var(--ease-in-out)}
-.divider.in path.gold{stroke-dashoffset:0}
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin: 0;
+      text-wrap: balance
+    }
 
-/* ---------- services bento ---------- */
-#services{background:var(--canvas-2)}
-.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--panel-border);border:1px solid var(--panel-border);border-radius:18px;overflow:hidden}
-.bento .card{background:var(--canvas-2);padding:2em 1.8em;grid-column:span 3;position:relative;min-height:190px;display:flex;flex-direction:column;justify-content:space-between}
-.bento .card:nth-child(1){grid-column:span 4}
-.bento .card:nth-child(2){grid-column:span 2}
-.bento .card:nth-child(3){grid-column:span 2}
-.bento .card:nth-child(4){grid-column:span 4}
-.bento .card:nth-child(5){grid-column:span 3}
-.bento .card:nth-child(6){grid-column:span 3}
-.bento .card .num{font-family:var(--font-mono);font-size:.72rem;color:var(--text-tertiary);letter-spacing:.1em}
-.bento .card h3{font-size:1.22rem;margin:.5em 0 .4em;line-height:1.2}
-.bento .card p{color:var(--text-secondary);font-size:.95rem}
-.bento .card::after{content:"";position:absolute;inset:0;background:radial-gradient(220px 140px at 85% 0%,rgba(0,229,255,.09),transparent 70%);opacity:0;transition:opacity .4s}
-.bento .card:hover::after{opacity:1}
-@media (max-width:900px){.bento{grid-template-columns:repeat(2,1fr)}.bento .card,.bento .card:nth-child(1),.bento .card:nth-child(2),.bento .card:nth-child(3),.bento .card:nth-child(4),.bento .card:nth-child(5),.bento .card:nth-child(6){grid-column:span 2}}
+    p {
+      margin: 0;
+      text-wrap: pretty
+    }
 
-/* ---------- how we work: process rail ---------- */
-#process .rail{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:1.6em}
-#process .rail::before{content:"";position:absolute;top:22px;left:22px;right:22px;height:2px;background:var(--panel-border);z-index:0}
-#process .rail .line-fill{position:absolute;top:22px;left:22px;height:2px;background:var(--accent);width:0;z-index:1;transition:width 1.4s var(--ease-in-out)}
-#process .step{position:relative;z-index:2}
-#process .step .dot{width:44px;height:44px;border-radius:50%;background:var(--panel);border:1px solid var(--panel-border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.85rem;color:var(--text-secondary);margin-bottom:1.1em;transition:border-color .4s,color .4s,box-shadow .4s}
-#process .step.lit .dot{border-color:var(--accent);color:var(--accent);box-shadow:0 0 0 4px var(--accent-muted)}
-#process .step h3{font-size:1.02rem;margin-bottom:.4em}
-#process .step p{color:var(--text-secondary);font-size:.92rem}
-@media (max-width:820px){#process .rail{grid-template-columns:1fr;gap:2.2em}#process .rail::before,#process .rail .line-fill{display:none}}
+    .w {
+      text-wrap: balance
+    }
 
-/* calibrate interactive moment */
-.calibrate{margin-top:clamp(3em,7vw,4.5em);display:flex;align-items:center;gap:2em;flex-wrap:wrap;padding:1.8em;border:1px solid var(--panel-border);border-radius:18px;background:var(--panel)}
-.calibrate .dial{position:relative;width:96px;height:96px;flex:none;cursor:pointer;-webkit-user-select:none;user-select:none;touch-action:none}
-.calibrate .dial svg{width:100%;height:100%;transform:rotate(-90deg)}
-.calibrate .dial circle{fill:none;stroke-width:6}
-.calibrate .dial .track{stroke:var(--panel-border)}
-.calibrate .dial .fill{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:251;stroke-dashoffset:251;transition:stroke-dashoffset .08s linear}
-.calibrate .dial .label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.72rem;color:var(--text-secondary);text-align:center;line-height:1.3}
-.calibrate .copy h3{font-size:1.1rem;margin-bottom:.3em}
-.calibrate .copy p{color:var(--text-secondary);font-size:.94rem;max-width:44ch}
-.calibrate.done .dial .label{color:var(--accent)}
+    a {
+      color: inherit;
+      text-decoration: none
+    }
 
-/* ---------- capability highlights ---------- */
-#work{background:var(--canvas-2)}
-.workgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6em}
-.workcard{position:relative;padding:2.2em 1.9em;border-radius:16px;background:var(--panel);border:1px solid var(--panel-border);overflow:hidden;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end}
-.workcard::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,var(--panel-2),var(--panel) 70%)}
-.workcard::after{content:"";position:absolute;top:-40%;right:-30%;width:70%;height:70%;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,.13),transparent 70%)}
-.workcard .tag{position:relative;font-family:var(--font-mono);font-size:.7rem;color:var(--accent-hover);letter-spacing:.1em;margin-bottom:1.4em}
-.workcard h3{position:relative;font-size:1.2rem;margin-bottom:.5em}
-.workcard p{position:relative;color:var(--text-secondary);font-size:.94rem}
-@media (max-width:900px){.workgrid{grid-template-columns:1fr}}
+    img {
+      max-width: 100%;
+      display: block
+    }
 
-/* ---------- tech stack ---------- */
-.stackgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.6em}
-.stackgroup h3{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;color:var(--text-tertiary);margin-bottom:1em;text-transform:uppercase}
-.chiprow{display:flex;flex-direction:column;gap:.6em}
-.chip{font-size:.95rem;color:var(--text-primary);padding:.5em 0;border-bottom:1px solid var(--panel-border)}
-@media (max-width:900px){.stackgrid{grid-template-columns:repeat(2,1fr)}}
+    .mono {
+      font-family: var(--font-mono);
+      letter-spacing: .06em;
+      text-transform: uppercase
+    }
 
-/* ---------- about ---------- */
-#about .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2em,6vw,5em);align-items:center}
-#about .imgwrap{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--panel-border)}
-#about .imgwrap img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
-#about .imgwrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,17,40,0) 55%,rgba(13,17,40,.7) 100%)}
-#about p{color:var(--text-secondary);margin-bottom:1.1em;font-size:1.03rem}
-#about p:last-of-type{margin-bottom:0}
-@media (max-width:860px){#about .split{grid-template-columns:1fr}#about .imgwrap{order:-1}}
+    /* ---------- skip link / focus ---------- */
+    .skip-link {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translateY(-140%);
+      background: var(--accent);
+      color: #00181c;
+      padding: .8em 1.2em;
+      z-index: 200;
+      border-radius: 0 0 8px 0;
+      transition: transform .25s var(--ease-out)
+    }
 
-/* ---------- FAQ ---------- */
-.faqlist{border-top:1px solid var(--panel-border)}
-.faqitem{border-bottom:1px solid var(--panel-border)}
-.faqq{width:100%;background:none;border:0;color:var(--text-primary);text-align:left;padding:1.4em 0;display:flex;justify-content:space-between;align-items:center;gap:1em;cursor:pointer;font-family:var(--font-body);font-size:1.05rem;font-weight:600}
-.faqq .plus{font-family:var(--font-mono);color:var(--accent);flex:none;transition:transform .35s var(--ease-out)}
-.faqitem.open .faqq .plus{transform:rotate(45deg)}
-.faqa{max-height:0;overflow:hidden;transition:max-height .4s var(--ease-in-out)}
-.faqa p{color:var(--text-secondary);padding-bottom:1.4em;max-width:64ch;font-size:.98rem}
+    .skip-link:focus {
+      transform: translateY(0)
+    }
 
-/* ---------- contact ---------- */
-#contact{background:var(--canvas-2)}
-.contactgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2em,6vw,5em)}
-@media (max-width:820px){.contactgrid{grid-template-columns:1fr}}
-.field{display:flex;flex-direction:column;gap:.5em;margin-bottom:1.3em}
-.field label{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;color:var(--text-tertiary);text-transform:uppercase}
-.field input,.field textarea{
-  background:var(--panel);border:1px solid var(--panel-border);border-radius:10px;
-  padding:.9em 1em;color:var(--text-primary);font-family:var(--font-body);font-size:.98rem;
-  transition:border-color .25s;resize:vertical
-}
-.field input:focus,.field textarea:focus{border-color:var(--accent-muted)}
-.formmsg{margin-top:1em;font-size:.9rem;color:var(--accent-hover);display:none}
-.formmsg.show{display:block}
-.contact-side{align-self:start}
-.contact-side .item{display:flex;gap:.9em;align-items:flex-start;margin-bottom:1.3em}
-.contact-side .item .ico{width:20px;height:20px;flex:none;color:var(--accent);margin-top:.2em}
-.contact-side .item h4{font-size:.98rem;margin-bottom:.2em}
-.contact-side .item p{color:var(--text-secondary);font-size:.92rem}
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 3px
+    }
 
-/* ---------- footer ---------- */
-footer{border-top:1px solid var(--panel-border);padding:3em clamp(1.2em,6vw,4em) 2.4em}
-footer .frow{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2em}
-footer .word{font-family:var(--font-display);font-weight:700;margin-bottom:.6em;display:flex;align-items:center;gap:.5em}
-footer .word .mark{width:20px;height:20px;object-fit:contain}
-footer p.tagline{color:var(--text-secondary);font-size:.92rem;max-width:32ch}
-footer .flinks{display:flex;gap:2.4em;flex-wrap:wrap}
-footer .flinks .col{display:flex;flex-direction:column;gap:.7em}
-footer .flinks a{color:var(--text-secondary);font-size:.92rem;transition:color .2s}
-footer .flinks a:hover{color:var(--text-primary)}
-footer .bottom{max-width:1180px;margin:2.4em auto 0;padding-top:1.6em;border-top:1px solid var(--panel-border);color:var(--text-tertiary);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8em}
+    /* ---------- custom cursor ---------- */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 300;
+      border-radius: 50%;
+      opacity: 0
+    }
 
-/* ---------- particles, whisper level ---------- */
-.particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.particles span{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--accent-muted);opacity:0;animation:pfloat 14s ease-in-out infinite}
-@keyframes pfloat{0%{opacity:0;transform:translateY(0)}10%{opacity:.6}90%{opacity:.3}100%{opacity:0;transform:translateY(-90px)}}
+    .cursor-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      box-shadow: 0 0 10px 1px var(--accent-muted);
+      transition: opacity .3s
+    }
 
-/* pause offscreen / hidden-tab animations */
-body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused !important}
+    .cursor-ring {
+      width: 34px;
+      height: 34px;
+      margin: -17px 0 0 -17px;
+      border: 1.5px solid var(--accent-muted);
+      transition: opacity .3s, width .3s var(--ease-out), height .3s var(--ease-out), margin .3s var(--ease-out), border-color .3s, background .3s
+    }
 
-/* ================= STATIC HERO GATES (must match JS GATES exactly) =================
+    .cursor-ring.hover {
+      width: 58px;
+      height: 58px;
+      margin: -29px 0 0 -29px;
+      border-color: var(--accent);
+      background: rgba(0, 229, 255, .07)
+    }
+
+    body.custom-cursor,
+    body.custom-cursor a,
+    body.custom-cursor button,
+    body.custom-cursor .dial {
+      cursor: none
+    }
+
+    @media (pointer:coarse) {
+
+      .cursor-dot,
+      .cursor-ring {
+        display: none !important
+      }
+    }
+
+    /* ---------- fixed background environment layer (signature) ---------- */
+    .env {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden
+    }
+
+    .env::before {
+      content: "";
+      position: absolute;
+      inset: -10%;
+      background: radial-gradient(ellipse 60% 40% at 78% 8%, rgba(0, 229, 255, .08), transparent 60%),
+        radial-gradient(ellipse 70% 55% at 15% 90%, rgba(0, 107, 122, .28), transparent 65%);
+      animation: envdrift 70s ease-in-out infinite alternate;
+      animation-delay: -20s;
+    }
+
+    @keyframes envdrift {
+      from {
+        transform: translate3d(0, 0, 0) scale(1)
+      }
+
+      to {
+        transform: translate3d(-2%, 1.5%, 0) scale(1.04)
+      }
+    }
+
+    .env .ticks {
+      position: absolute;
+      inset: 0;
+      opacity: .5
+    }
+
+    .env .ticks svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(160vw, 1800px);
+      height: min(160vw, 1800px);
+      transform: translate(-50%, -50%);
+      animation: ticksspin 220s linear infinite;
+      animation-delay: -40s
+    }
+
+    @keyframes ticksspin {
+      to {
+        transform: translate(-50%, -50%) rotate(360deg)
+      }
+    }
+
+    /* ---------- nav ---------- */
+    header.nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.1em clamp(1.2em, 4vw, 2.6em);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(rgba(10, 13, 32, .55), rgba(10, 13, 32, 0));
+      transition: background .3s
+    }
+
+    header.nav .word {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: .02em;
+      display: flex;
+      align-items: center;
+      gap: .55em
+    }
+
+    header.nav .word .mark {
+      width: 24px;
+      height: 24px;
+      flex: none;
+      object-fit: contain
+    }
+
+    header.nav nav {
+      display: flex;
+      gap: 2em;
+      align-items: center
+    }
+
+    header.nav nav a {
+      font-size: .9rem;
+      color: var(--text-secondary);
+      transition: color .2s
+    }
+
+    header.nav nav a:hover {
+      color: var(--text-primary)
+    }
+
+    header.nav .navlinks {
+      display: flex;
+      gap: 1.8em
+    }
+
+    header.nav .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: .9em
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: .4em;
+      background: transparent;
+      border: 1px solid var(--panel-border);
+      color: var(--text-primary);
+      border-radius: 999px;
+      padding: .6em 1em;
+      font-family: var(--font-mono);
+      font-size: .76rem;
+      letter-spacing: .06em;
+      cursor: pointer;
+      transition: border-color .25s, color .25s
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent-muted);
+      color: var(--accent)
+    }
+
+    .lang-toggle svg {
+      width: 14px;
+      height: 14px;
+      flex: none
+    }
+
+    @media (pointer:coarse) {
+      .lang-toggle {
+        min-height: 44px
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5em;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: .92rem;
+      padding: .85em 1.5em;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out), background .25s, border-color .25s;
+      text-shadow: none;
+    }
+
+    .btn-gold {
+      background: var(--accent);
+      color: #00181c;
+      box-shadow: 0 0 0 0 rgba(0, 229, 255, 0)
+    }
+
+    .btn-gold:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -8px rgba(0, 229, 255, .55)
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--panel-border);
+      color: var(--text-primary)
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent-muted);
+      transform: translateY(-2px)
+    }
+
+    @media (pointer:coarse) {
+      .btn {
+        min-height: 44px
+      }
+    }
+
+    @media (max-width:760px) {
+      header.nav {
+        padding: .9em 1.1em
+      }
+
+      header.nav .navlinks {
+        display: none
+      }
+
+      header.nav .word {
+        font-size: 1rem
+      }
+
+      header.nav .word .mark {
+        width: 19px;
+        height: 19px
+      }
+
+      header.nav .btn {
+        padding: .7em 1.1em;
+        font-size: .85rem
+      }
+
+      header.nav .nav-actions {
+        gap: .5em
+      }
+
+      .lang-toggle {
+        padding: .55em .8em;
+        font-size: .7rem
+      }
+
+      .lang-toggle svg {
+        display: none
+      }
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      position: relative;
+      height: 950vh;
+      z-index: 1;
+      padding: 0
+    }
+
+    .stage {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: #050505
+    }
+
+    .stage video,
+    .stage .poster {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .stage .poster {
+      background-size: cover;
+      background-position: center;
+      opacity: 1;
+      transition: opacity .6s ease
+    }
+
+    .stage video {
+      opacity: 0;
+      transition: opacity .6s ease;
+      will-change: transform;
+      transform: translateZ(0)
+    }
+
+    .stage.video-ready video {
+      opacity: 1
+    }
+
+    .stage.video-ready .poster {
+      opacity: 0
+    }
+
+    .stage .scrim {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 120% 90% at 50% 45%, rgba(9, 11, 26, 0) 30%, rgba(9, 11, 26, .66) 100%)
+    }
+
+    .bands {
+      position: absolute;
+      inset: 0;
+      z-index: 2
+    }
+
+    .band {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 clamp(1.4em, 7vw, 6.5em);
+      opacity: 0;
+      pointer-events: none
+    }
+
+    .band::before {
+      content: "";
+      position: absolute;
+      inset: -4%;
+      pointer-events: none;
+      opacity: calc(.35 + .65*var(--k, 1));
+      background: radial-gradient(ellipse 70% 58% at var(--sx, 50%) 50%, rgba(5, 6, 14, .72) 0%, rgba(5, 6, 14, .5) 46%, rgba(5, 6, 14, 0) 76%)
+    }
+
+    .band-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      text-shadow: var(--tshadow)
+    }
+
+    .band[data-side="left"] .band-inner {
+      margin-right: auto
+    }
+
+    .band[data-side="right"] .band-inner {
+      margin-left: auto;
+      text-align: right
+    }
+
+    .band .eyebrow {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--accent-hover);
+      letter-spacing: .16em;
+      margin-bottom: 1em;
+      display: flex;
+      align-items: center;
+      gap: .6em
+    }
+
+    .band[data-side="right"] .eyebrow {
+      justify-content: flex-end
+    }
+
+    .band .eyebrow .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px 2px var(--accent-muted)
+    }
+
+    .band h1,
+    .band h2 {
+      font-size: clamp(1.9rem, 4.6vw, 3.6rem);
+      line-height: 1.08;
+      margin-bottom: .5em
+    }
+
+    .band p {
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 1.5vw, 1.18rem);
+      max-width: 34ch
+    }
+
+    .band[data-side="right"] p {
+      margin-left: auto
+    }
+
+    .band .cta-row {
+      margin-top: 1.6em;
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap
+    }
+
+    .band[data-side="right"] .cta-row {
+      justify-content: flex-end
+    }
+
+    /* word/char split */
+    .w {
+      display: inline-block;
+      overflow: hidden;
+      padding-bottom: .14em;
+      margin-bottom: -.14em
+    }
+
+    .w .cwrap {
+      display: inline-block;
+      white-space: pre
+    }
+
+    .c {
+      display: inline-block
+    }
+
+    .band h1 .w,
+    .band h2 .w {
+      --kc: clamp(0, (var(--k, 0) - var(--th, 0))*2.6, 1);
+      opacity: var(--kc);
+      transform: translateY(calc((1 - var(--kc))*22px))
+    }
+
+    .band .lede-w {
+      --kc: clamp(0, (var(--k, 0) - var(--th, .28))*3, 1);
+      opacity: var(--kc);
+      display: inline-block;
+      transform: translateY(calc((1 - var(--kc))*10px))
+    }
+
+    .band .cta-row {
+      --kb: clamp(0, (var(--k, 0) - .55)*4, 1);
+      opacity: var(--kb);
+      transform: translateY(calc((1 - var(--kb))*10px))
+    }
+
+    /* blur to sharp entrance (band 2) */
+    .blursoft {
+      position: absolute;
+      inset: 0;
+      filter: blur(11px);
+      opacity: calc(1 - var(--k, 0));
+      pointer-events: none
+    }
+
+    .blurhard {
+      opacity: var(--k, 0)
+    }
+
+    /* scatter entrance (band 3) */
+    .scatter .c {
+      --kc2: clamp(0, (var(--k, 0) - var(--th, 0))*2.8, 1);
+      opacity: var(--kc2);
+      transform: translate(calc((1 - var(--kc2))*var(--jx, 0px)), calc((1 - var(--kc2))*var(--jy, 0px))) rotate(calc((1 - var(--kc2))*var(--jr, 0deg)))
+    }
+
+    .static-copy {
+      display: none;
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      align-items: flex-end;
+      padding: 0 clamp(1.2em, 6vw, 3em) clamp(3em, 10vh, 5em)
+    }
+
+    .static-copy .inner {
+      max-width: 520px;
+      text-shadow: var(--tshadow)
+    }
+
+    .static-copy .eyebrow {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--accent-hover);
+      letter-spacing: .16em;
+      margin-bottom: .8em;
+      display: block
+    }
+
+    .static-copy h1 {
+      font-size: clamp(2rem, 8vw, 2.6rem);
+      line-height: 1.1;
+      margin-bottom: .45em
+    }
+
+    .static-copy p {
+      color: var(--text-secondary);
+      margin-bottom: 1.3em
+    }
+
+    .ring {
+      position: absolute;
+      bottom: 2.2em;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 44px;
+      color: var(--accent);
+      z-index: 4;
+      transition: opacity .4s
+    }
+
+    .ring.hide {
+      opacity: 0;
+      pointer-events: none
+    }
+
+    .chevron {
+      position: absolute;
+      bottom: 2.4em;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      color: var(--text-secondary);
+      animation: chevbob 2.4s ease-in-out infinite
+    }
+
+    @keyframes chevbob {
+
+      0%,
+      100% {
+        transform: translate(-50%, 0)
+      }
+
+      50% {
+        transform: translate(-50%, 8px)
+      }
+    }
+
+    /* ---------- shared section chrome ---------- */
+    main {
+      position: relative;
+      z-index: 1;
+      background: var(--canvas)
+    }
+
+    section {
+      position: relative;
+      padding: clamp(4.5em, 10vw, 8em) clamp(1.2em, 6vw, 4em)
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto
+    }
+
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: .74rem;
+      color: var(--accent);
+      letter-spacing: .16em;
+      margin-bottom: 1em;
+      display: block
+    }
+
+    .sec-head {
+      max-width: 640px;
+      margin-bottom: clamp(2.4em, 6vw, 3.6em)
+    }
+
+    .sec-head h2 {
+      font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+      line-height: 1.14;
+      margin-bottom: .5em
+    }
+
+    .sec-head p {
+      color: var(--text-secondary);
+      font-size: 1.06rem;
+      max-width: 52ch
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .8s var(--ease-out), transform .8s var(--ease-out)
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-34px);
+      transition: opacity .85s var(--ease-out), transform .85s var(--ease-out)
+    }
+
+    .reveal-left.in {
+      opacity: 1;
+      transform: none
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(34px);
+      transition: opacity .85s var(--ease-out), transform .85s var(--ease-out)
+    }
+
+    .reveal-right.in {
+      opacity: 1;
+      transform: none
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(.92) translateY(14px);
+      transition: opacity .75s var(--ease-out), transform .75s var(--ease-out)
+    }
+
+    .reveal-scale.in {
+      opacity: 1;
+      transform: none
+    }
+
+    .stagger-scale>* {
+      opacity: 0;
+      transform: scale(.9);
+      transition: opacity .6s var(--ease-out), transform .6s var(--ease-out)
+    }
+
+    .stagger-scale.in>* {
+      opacity: 1;
+      transform: none
+    }
+
+    .stagger-scale.in>*:nth-child(1) {
+      transition-delay: 0ms
+    }
+
+    .stagger-scale.in>*:nth-child(2) {
+      transition-delay: 80ms
+    }
+
+    .stagger-scale.in>*:nth-child(3) {
+      transition-delay: 160ms
+    }
+
+    .stagger>* {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s var(--ease-out), transform .7s var(--ease-out)
+    }
+
+    .stagger.in>* {
+      opacity: 1;
+      transform: none
+    }
+
+    .stagger.in>*:nth-child(1) {
+      transition-delay: 0ms
+    }
+
+    .stagger.in>*:nth-child(2) {
+      transition-delay: 90ms
+    }
+
+    .stagger.in>*:nth-child(3) {
+      transition-delay: 180ms
+    }
+
+    .stagger.in>*:nth-child(4) {
+      transition-delay: 270ms
+    }
+
+    .stagger.in>*:nth-child(5) {
+      transition-delay: 360ms
+    }
+
+    .stagger.in>*:nth-child(6) {
+      transition-delay: 450ms
+    }
+
+    body.stagger-settled .stagger>*,
+    body.stagger-settled .stagger-scale>* {
+      transition-delay: 0ms !important
+    }
+
+    /* divider line, self drawing */
+    .divider {
+      width: 100%;
+      height: 2px;
+      margin: 0 auto
+    }
+
+    .divider path {
+      fill: none;
+      stroke: var(--panel-border);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke
+    }
+
+    .divider path.gold {
+      stroke: var(--accent);
+      stroke-dasharray: 1400;
+      stroke-dashoffset: 1400;
+      transition: stroke-dashoffset 1.6s var(--ease-in-out)
+    }
+
+    .divider.in path.gold {
+      stroke-dashoffset: 0
+    }
+
+    /* ---------- services bento ---------- */
+    #services {
+      background: var(--canvas-2)
+    }
+
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: var(--panel-border);
+      border: 1px solid var(--panel-border);
+      border-radius: 18px;
+      overflow: hidden
+    }
+
+    .bento .card {
+      background: var(--canvas-2);
+      padding: 2em 1.8em;
+      grid-column: span 3;
+      position: relative;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between
+    }
+
+    .bento .card:nth-child(1) {
+      grid-column: span 4
+    }
+
+    .bento .card:nth-child(2) {
+      grid-column: span 2
+    }
+
+    .bento .card:nth-child(3) {
+      grid-column: span 2
+    }
+
+    .bento .card:nth-child(4) {
+      grid-column: span 4
+    }
+
+    .bento .card:nth-child(5) {
+      grid-column: span 3
+    }
+
+    .bento .card:nth-child(6) {
+      grid-column: span 3
+    }
+
+    .bento .card .num {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--text-tertiary);
+      letter-spacing: .1em
+    }
+
+    .bento .card h3 {
+      font-size: 1.22rem;
+      margin: .5em 0 .4em;
+      line-height: 1.2
+    }
+
+    .bento .card p {
+      color: var(--text-secondary);
+      font-size: .95rem
+    }
+
+    .bento .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(220px 140px at 85% 0%, rgba(0, 229, 255, .09), transparent 70%);
+      opacity: 0;
+      transition: opacity .4s
+    }
+
+    .bento .card:hover::after {
+      opacity: 1
+    }
+
+    @media (max-width:900px) {
+      .bento {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .bento .card,
+      .bento .card:nth-child(1),
+      .bento .card:nth-child(2),
+      .bento .card:nth-child(3),
+      .bento .card:nth-child(4),
+      .bento .card:nth-child(5),
+      .bento .card:nth-child(6) {
+        grid-column: span 2
+      }
+    }
+
+    /* ---------- how we work: one step at a time, driven by scroll ---------- */
+    .steps-pin {
+      position: relative;
+      height: 400vh
+    }
+
+    .steps-stage {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 clamp(1.2em, 6vw, 3em);
+      overflow: hidden
+    }
+
+    .steps-dots {
+      display: flex;
+      gap: .75em;
+      margin-bottom: clamp(2em, 6vw, 3.2em)
+    }
+
+    .steps-dots .step-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--panel-border);
+      transition: background .35s, transform .35s;
+      flex: none
+    }
+
+    .steps-dots .step-dot.seen {
+      background: var(--accent-hover)
+    }
+
+    .steps-dots .step-dot.active {
+      background: var(--accent);
+      transform: scale(1.6)
+    }
+
+    .steps-panels {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      min-height: clamp(200px, 32vh, 260px)
+    }
+
+    .step-panel {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .5s var(--ease-out), transform .5s var(--ease-out);
+      pointer-events: none
+    }
+
+    .step-panel.active {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto
+    }
+
+    .step-panel .step-num {
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      color: var(--accent);
+      letter-spacing: .14em;
+      margin-bottom: 1em
+    }
+
+    .step-panel h3 {
+      font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+      margin-bottom: .55em
+    }
+
+    .step-panel p {
+      color: var(--text-secondary);
+      font-size: 1.04rem;
+      max-width: 44ch
+    }
+
+    .steps-chevron {
+      position: absolute;
+      bottom: 2em;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--text-secondary);
+      animation: chevbob 2.4s ease-in-out infinite;
+      transition: opacity .4s
+    }
+
+    .steps-chevron.hide {
+      opacity: 0
+    }
+
+    @media (max-width:640px) {
+      .steps-pin {
+        height: 340vh
+      }
+
+      .steps-panels {
+        min-height: clamp(220px, 40vh, 300px)
+      }
+    }
+
+    /* reduced motion: unpin and stack every step, all visible at once */
+    @media (prefers-reduced-motion:reduce) {
+      .steps-pin {
+        height: auto
+      }
+
+      .steps-stage {
+        position: relative;
+        height: auto;
+        padding: 2em clamp(1.2em, 6vw, 3em);
+        gap: 3em
+      }
+
+      .steps-dots {
+        display: none
+      }
+
+      .steps-panels {
+        position: static;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2.4em;
+        max-width: 680px;
+        margin: 0 auto
+      }
+
+      .step-panel {
+        position: static;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto
+      }
+
+      .steps-chevron {
+        display: none
+      }
+    }
+
+    /* ---------- capability highlights ---------- */
+    #work {
+      background: var(--canvas-2)
+    }
+
+    .workgrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6em
+    }
+
+    .workcard {
+      position: relative;
+      padding: 2.2em 1.9em;
+      border-radius: 16px;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      overflow: hidden;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end
+    }
+
+    .workcard::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, var(--panel-2), var(--panel) 70%)
+    }
+
+    .workcard::after {
+      content: "";
+      position: absolute;
+      top: -40%;
+      right: -30%;
+      width: 70%;
+      height: 70%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 229, 255, .13), transparent 70%)
+    }
+
+    .workcard .tag {
+      position: relative;
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--accent-hover);
+      letter-spacing: .1em;
+      margin-bottom: 1.4em
+    }
+
+    .workcard h3 {
+      position: relative;
+      font-size: 1.2rem;
+      margin-bottom: .5em
+    }
+
+    .workcard p {
+      position: relative;
+      color: var(--text-secondary);
+      font-size: .94rem
+    }
+
+    @media (max-width:900px) {
+      .workgrid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* ---------- tech stack ---------- */
+    .stackgrid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.6em
+    }
+
+    .stackgroup h3 {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      color: var(--text-tertiary);
+      margin-bottom: 1em;
+      text-transform: uppercase
+    }
+
+    .chiprow {
+      display: flex;
+      flex-direction: column;
+      gap: .6em
+    }
+
+    .chip {
+      font-size: .95rem;
+      color: var(--text-primary);
+      padding: .5em 0;
+      border-bottom: 1px solid var(--panel-border)
+    }
+
+    @media (max-width:900px) {
+      .stackgrid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    /* ---------- about ---------- */
+    #about .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2em, 6vw, 5em);
+      align-items: center
+    }
+
+    #about .imgwrap {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--panel-border)
+    }
+
+    #about .imgwrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.05)
+    }
+
+    #about .imgwrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(13, 17, 40, 0) 55%, rgba(13, 17, 40, .7) 100%)
+    }
+
+    #about p {
+      color: var(--text-secondary);
+      margin-bottom: 1.1em;
+      font-size: 1.03rem
+    }
+
+    #about p:last-of-type {
+      margin-bottom: 0
+    }
+
+    @media (max-width:860px) {
+      #about .split {
+        grid-template-columns: 1fr
+      }
+
+      #about .imgwrap {
+        order: -1
+      }
+    }
+
+    /* ---------- FAQ ---------- */
+    .faqlist {
+      border-top: 1px solid var(--panel-border)
+    }
+
+    .faqitem {
+      border-bottom: 1px solid var(--panel-border)
+    }
+
+    .faqq {
+      width: 100%;
+      background: none;
+      border: 0;
+      color: var(--text-primary);
+      text-align: left;
+      padding: 1.4em 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1em;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 600
+    }
+
+    .faqq .plus {
+      font-family: var(--font-mono);
+      color: var(--accent);
+      flex: none;
+      transition: transform .35s var(--ease-out)
+    }
+
+    .faqitem.open .faqq .plus {
+      transform: rotate(45deg)
+    }
+
+    .faqa {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s var(--ease-in-out)
+    }
+
+    .faqa p {
+      color: var(--text-secondary);
+      padding-bottom: 1.4em;
+      max-width: 64ch;
+      font-size: .98rem
+    }
+
+    /* ---------- contact ---------- */
+    #contact {
+      background: var(--canvas-2)
+    }
+
+    .contactgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2em, 6vw, 5em)
+    }
+
+    @media (max-width:820px) {
+      .contactgrid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: .5em;
+      margin-bottom: 1.3em
+    }
+
+    .field label {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      letter-spacing: .1em;
+      color: var(--text-tertiary);
+      text-transform: uppercase
+    }
+
+    .field input,
+    .field textarea {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 10px;
+      padding: .9em 1em;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: .98rem;
+      transition: border-color .25s;
+      resize: vertical
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--accent-muted)
+    }
+
+    .formmsg {
+      margin-top: 1em;
+      font-size: .9rem;
+      color: var(--accent-hover);
+      display: none
+    }
+
+    .formmsg.show {
+      display: block
+    }
+
+    .contact-side {
+      align-self: start
+    }
+
+    .contact-side .item {
+      margin-bottom: 1.3em
+    }
+
+    .contact-side .item .item-row {
+      display: flex;
+      align-items: center;
+      gap: .9em;
+      margin-bottom: .3em
+    }
+
+    .contact-side .item .ico {
+      width: 20px;
+      height: 20px;
+      flex: none;
+      color: var(--accent)
+    }
+
+    .contact-side .item h4 {
+      font-size: .98rem;
+      margin: 0
+    }
+
+    .contact-side .item p {
+      color: var(--text-secondary);
+      font-size: .92rem;
+      margin-left: calc(20px + .9em)
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      border-top: 1px solid var(--panel-border);
+      padding: 3em clamp(1.2em, 6vw, 4em) 2.4em
+    }
+
+    footer .frow {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2em
+    }
+
+    footer .word {
+      font-family: var(--font-display);
+      font-weight: 700;
+      margin-bottom: .6em;
+      display: flex;
+      align-items: center;
+      gap: .5em
+    }
+
+    footer .word .mark {
+      width: 20px;
+      height: 20px;
+      object-fit: contain
+    }
+
+    footer p.tagline {
+      color: var(--text-secondary);
+      font-size: .92rem;
+      max-width: 32ch
+    }
+
+    footer .flinks {
+      display: flex;
+      gap: 2.4em;
+      flex-wrap: wrap
+    }
+
+    footer .flinks .col {
+      display: flex;
+      flex-direction: column;
+      gap: .7em
+    }
+
+    footer .flinks a {
+      color: var(--text-secondary);
+      font-size: .92rem;
+      transition: color .2s
+    }
+
+    footer .flinks a:hover {
+      color: var(--text-primary)
+    }
+
+    footer .bottom {
+      max-width: 1180px;
+      margin: 2.4em auto 0;
+      padding-top: 1.6em;
+      border-top: 1px solid var(--panel-border);
+      color: var(--text-tertiary);
+      font-size: .82rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .8em
+    }
+
+    /* ---------- particles, whisper level ---------- */
+    .particles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0
+    }
+
+    .particles span {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--accent-muted);
+      opacity: 0;
+      animation: pfloat 14s ease-in-out infinite
+    }
+
+    @keyframes pfloat {
+      0% {
+        opacity: 0;
+        transform: translateY(0)
+      }
+
+      10% {
+        opacity: .6
+      }
+
+      90% {
+        opacity: .3
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-90px)
+      }
+    }
+
+    /* pause offscreen / hidden-tab animations */
+    body.paused *,
+    body.paused *::before,
+    body.paused *::after {
+      animation-play-state: paused !important
+    }
+
+    /* ================= STATIC HERO GATES (must match JS GATES exactly) =================
    Phones and tablets get the live scrub too (the footage is centered/symmetric and
    cover-crops well to portrait). Only two cases fall back to the static hero:
    a phone held sideways with no room for the journey, and reduced motion. */
-@media (orientation:landscape) and (pointer:coarse) and (max-height:560px),
-       (prefers-reduced-motion:reduce){
-  .hero{height:100vh}
-  .stage{position:relative}
-  .bands{display:none}
-  .ring,.chevron{display:none}
-  .static-copy{display:flex}
-  .stage .poster{background-image:url('assets/hero-ending.jpg') !important}
-}
-@media (max-height:560px){.chevron{display:none}}
+    @media (orientation:landscape) and (pointer:coarse) and (max-height:560px),
+    (prefers-reduced-motion:reduce) {
+      .hero {
+        height: 100vh
+      }
 
-/* reduced motion: kill decorative motion globally */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
-  .reveal,.stagger>*{opacity:1 !important;transform:none !important}
-  .divider path.gold{stroke-dashoffset:0 !important}
-  #process .rail .line-fill{width:100% !important}
-  .env::before,.env .ticks svg{animation:none !important}
-}
-</style>
-</head>
-<body>
-<a href="#main" class="skip-link">Skip to content</a>
+      .stage {
+        position: relative
+      }
 
-<div class="env" aria-hidden="true">
-  <div class="ticks">
-    <svg viewBox="0 0 400 400" aria-hidden="true">
-      <g fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.5">
-        <circle cx="200" cy="200" r="190"/>
-      </g>
-      <g stroke="#00e5ff" stroke-width="1.4" opacity="0.35" id="tickmarks"></g>
-    </svg>
-  </div>
-</div>
+      .bands {
+        display: none
+      }
 
-<header class="nav">
-  <a href="#main" class="word">
-    <img class="mark" src="assets/logo.png" alt="" width="44" height="44">
-    ASTOMIQ
-  </a>
-  <nav class="navlinks" aria-label="Primary">
-    <a href="#services">Services</a>
-    <a href="#process">How we work</a>
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a href="#faq">FAQ</a>
-  </nav>
-  <a href="#contact" class="btn btn-gold">Start a project</a>
-</header>
+      .ring,
+      .chevron {
+        display: none
+      }
 
-<main id="main" tabindex="-1">
+      .static-copy {
+        display: flex
+      }
 
-  <section class="hero" id="hero">
-    <div class="stage" id="stage">
-      <video id="heroVideo" preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
-      <div class="poster" id="posterLayer"></div>
-      <div class="scrim" aria-hidden="true"></div>
-
-      <div class="bands" id="bands">
-        <div class="band" data-side="left" data-range="0,0.2" id="band1">
-          <div class="band-inner">
-            <span class="eyebrow"><span class="dot"></span>ASTOMIQ · SOFTWARE HOUSE</span>
-            <h1 id="band1-h">We build software to the tolerance it deserves.</h1>
-          </div>
-        </div>
-
-        <div class="band" data-side="right" data-range="0.27,0.47" id="band2">
-          <div class="band-inner">
-            <span class="eyebrow">INSIDE THE BUILD</span>
-            <div style="position:relative">
-              <p class="blursoft" id="band2-soft">No off-the-shelf guesses. We go straight to the components that make your product work.</p>
-              <p class="blurhard" id="band2-hard">No off-the-shelf guesses. We go straight to the components that make your product work.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="band" data-side="left" data-range="0.53,0.72" id="band3">
-          <div class="band-inner">
-            <span class="eyebrow"><span class="dot"></span>DOWN TO THE CODE</span>
-            <h2 class="scatter" id="band3-h">Every line written on purpose, measured against the spec, not the demo.</h2>
-          </div>
-        </div>
-
-        <div class="band" data-side="left" data-range="0.8,1.0" id="band4">
-          <div class="band-inner">
-            <span class="eyebrow">READY</span>
-            <h1 id="band4-h">Precision, delivered.</h1>
-            <p><span class="lede-w" style="--th:.15">Custom software built to spec, on schedule, made to last.</span></p>
-            <div class="cta-row">
-              <a href="#contact" class="btn btn-gold">Start a project</a>
-              <a href="#work" class="btn btn-ghost">See our work</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="static-copy">
-        <div class="inner">
-          <span class="eyebrow">ASTOMIQ · SOFTWARE HOUSE</span>
-          <h1>Precision, delivered.</h1>
-          <p>ASTOMIQ builds custom software to the tolerance it deserves: web and mobile apps, cloud systems, and AI, calibrated to your product and shipped on schedule.</p>
-          <a href="#contact" class="btn btn-gold">Start a project</a>
-        </div>
-      </div>
-
-      <svg class="ring" id="ring" viewBox="0 0 48 48" aria-hidden="true">
-        <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"/>
-      </svg>
-      <svg class="chevron" id="chevron" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true" style="display:none">
-        <path d="M1 1L11 12L21 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-  </section>
-
-  <!-- ================= SERVICES ================= -->
-  <section id="services">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="kicker">WHAT WE BUILD</span>
-        <h2>Six ways to put a working build in your hands.</h2>
-        <p>Pick one, or hand us the whole problem. Every engagement starts with the same question: what does this actually need to do.</p>
-      </div>
-      <div class="bento stagger-scale">
-        <div class="card">
-          <span class="num">01</span>
-          <div>
-            <h3>Custom Software Development</h3>
-            <p>Applications built from your spec, not a template. We write the code your product actually needs, and nothing it doesn't.</p>
-          </div>
-        </div>
-        <div class="card">
-          <span class="num">02</span>
-          <div>
-            <h3>Web &amp; Mobile Apps</h3>
-            <p>Fast, accessible interfaces for the browser and the phone in your pocket.</p>
-          </div>
-        </div>
-        <div class="card">
-          <span class="num">03</span>
-          <div>
-            <h3>Cloud &amp; DevOps</h3>
-            <p>Infrastructure that scales when you need it and stays quiet, and cheap, when you don't.</p>
-          </div>
-        </div>
-        <div class="card">
-          <span class="num">04</span>
-          <div>
-            <h3>AI &amp; Data Engineering</h3>
-            <p>Pipelines and models built on your own data, tuned to your numbers instead of a generic benchmark.</p>
-          </div>
-        </div>
-        <div class="card">
-          <span class="num">05</span>
-          <div>
-            <h3>Product Consulting</h3>
-            <p>We help you find the right scope before a single line of code gets written.</p>
-          </div>
-        </div>
-        <div class="card">
-          <span class="num">06</span>
-          <div>
-            <h3>Dedicated Teams</h3>
-            <p>Engineers who work inside your team, on your schedule, for as long as you need them.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <svg class="divider reveal" viewBox="0 0 1200 2" preserveAspectRatio="none" aria-hidden="true"><path d="M0,1 L1200,1"/><path class="gold" d="M0,1 L1200,1"/></svg>
-
-  <!-- ================= HOW WE WORK ================= -->
-  <section id="process">
-    <div class="wrap">
-      <div class="sec-head reveal-left">
-        <span class="kicker">HOW WE WORK</span>
-        <h2>Five steps. Nothing hidden between them.</h2>
-        <p>The same process on a two-week fix and a year-long build, sized to fit.</p>
-      </div>
-
-      <div class="rail" id="rail">
-        <div class="step" data-i="0"><div class="dot">01</div><h3>Discover</h3><p>We learn the problem before we touch a keyboard.</p></div>
-        <div class="step" data-i="1"><div class="dot">02</div><h3>Calibrate</h3><p>We set the exact scope, budget, and timeline. In writing.</p></div>
-        <div class="step" data-i="2"><div class="dot">03</div><h3>Build</h3><p>Short cycles. Working software every week, not every quarter.</p></div>
-        <div class="step" data-i="3"><div class="dot">04</div><h3>Verify</h3><p>Every release is tested against the spec, not just the demo.</p></div>
-        <div class="step" data-i="4"><div class="dot">05</div><h3>Ship</h3><p>We deploy it, watch it, and stay close after launch.</p></div>
-        <div class="line-fill" id="railFill"></div>
-      </div>
-
-      <div class="calibrate reveal" id="calibrate">
-        <div class="dial" id="dial" role="button" tabindex="0" aria-label="Press and hold to calibrate the process view">
-          <svg viewBox="0 0 96 96" aria-hidden="true">
-            <circle class="track" cx="48" cy="48" r="40"/>
-            <circle class="fill" id="dialFill" cx="48" cy="48" r="40"/>
-          </svg>
-          <span class="label" id="dialLabel">Hold to<br>calibrate</span>
-        </div>
-        <div class="copy">
-          <h3>See the process light up.</h3>
-          <p>Press and hold the dial. Just like a build, it doesn't finish until it's held to the end.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= WORK ================= -->
-  <section id="work">
-    <div class="wrap">
-      <div class="sec-head reveal-scale">
-        <span class="kicker">REPRESENTATIVE WORK</span>
-        <h2>The kind of problem we're built for.</h2>
-        <p>Illustrative examples of the scope and shape of work we take on, not client case studies.</p>
-      </div>
-      <div class="workgrid stagger-scale">
-        <div class="workcard">
-          <span class="tag">LOGISTICS</span>
-          <h3>Dispatch platform rebuild</h3>
-          <p>Replaced a twelve-year-old dispatch system with a real-time platform. Same team, half the manual work.</p>
-        </div>
-        <div class="workcard">
-          <span class="tag">FINTECH</span>
-          <h3>Reporting pipeline</h3>
-          <p>Built a data pipeline that turns a week of manual reconciliation into an overnight job.</p>
-        </div>
-        <div class="workcard">
-          <span class="tag">HEALTHCARE</span>
-          <h3>Clinic scheduling system</h3>
-          <p>Designed a booking system that cut no-shows and gave front-desk staff their afternoons back.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <svg class="divider reveal" viewBox="0 0 1200 2" preserveAspectRatio="none" aria-hidden="true"><path d="M0,1 L1200,1"/><path class="gold" d="M0,1 L1200,1"/></svg>
-
-  <!-- ================= TECH STACK ================= -->
-  <section id="stack">
-    <div class="wrap">
-      <div class="sec-head reveal-right">
-        <span class="kicker">TOOLS OF THE TRADE</span>
-        <h2>Instruments we trust, not whatever's trending.</h2>
-      </div>
-      <div class="stackgrid stagger">
-        <div class="stackgroup">
-          <h3>Languages</h3>
-          <div class="chiprow"><span class="chip">TypeScript</span><span class="chip">Python</span><span class="chip">Go</span><span class="chip">Swift</span><span class="chip">Kotlin</span></div>
-        </div>
-        <div class="stackgroup">
-          <h3>Frontend</h3>
-          <div class="chiprow"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">SwiftUI</span></div>
-        </div>
-        <div class="stackgroup">
-          <h3>Backend</h3>
-          <div class="chiprow"><span class="chip">Node.js</span><span class="chip">Django</span><span class="chip">PostgreSQL</span></div>
-        </div>
-        <div class="stackgroup">
-          <h3>Cloud</h3>
-          <div class="chiprow"><span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">Docker</span><span class="chip">Kubernetes</span></div>
-        </div>
-        <div class="stackgroup">
-          <h3>AI &amp; Data</h3>
-          <div class="chiprow"><span class="chip">PyTorch</span><span class="chip">Airflow</span><span class="chip">dbt</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= ABOUT ================= -->
-  <section id="about">
-    <div class="wrap split">
-      <div class="reveal-left">
-        <span class="kicker">ABOUT ASTOMIQ</span>
-        <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:.7em">We treat every build like an instrument, not an experiment.</h2>
-        <p>ASTOMIQ is a software house for teams who are done guessing. We come from product engineering, not just outsourcing: every project gets a real spec, a real timeline, and a team that stays until it's calibrated to what you actually needed.</p>
-        <p>We're small on purpose. Every engagement gets senior engineers, not a rotating cast, and a single point of contact who can answer for the whole build.</p>
-      </div>
-      <div class="reveal-right imgwrap">
-        <img src="assets/hero-ending.jpg" alt="The ASTOMIQ mark formed from converging lines of light, resting in a dark cyan-lit space." loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <svg class="divider reveal" viewBox="0 0 1200 2" preserveAspectRatio="none" aria-hidden="true"><path d="M0,1 L1200,1"/><path class="gold" d="M0,1 L1200,1"/></svg>
-
-  <!-- ================= FAQ ================= -->
-  <section id="faq">
-    <div class="wrap" style="max-width:820px">
-      <div class="sec-head reveal">
-        <span class="kicker">QUESTIONS</span>
-        <h2>What people ask before they start.</h2>
-      </div>
-      <div class="faqlist reveal">
-        <div class="faqitem">
-          <button class="faqq" aria-expanded="false">How long does a project take?<span class="plus">+</span></button>
-          <div class="faqa"><p>Most builds run eight to sixteen weeks, in shippable stages. A focused fix can land in two. We give you a real date at the Calibrate step, not a guess.</p></div>
-        </div>
-        <div class="faqitem">
-          <button class="faqq" aria-expanded="false">What does it cost?<span class="plus">+</span></button>
-          <div class="faqa"><p>It depends on scope, so we quote after Discover, not before it. You get a fixed number for a fixed scope, or a weekly rate for an open-ended team, your choice.</p></div>
-        </div>
-        <div class="faqitem">
-          <button class="faqq" aria-expanded="false">Who owns the code?<span class="plus">+</span></button>
-          <div class="faqa"><p>You do. Full source, full rights, transferred at each milestone, not held back until the end.</p></div>
-        </div>
-        <div class="faqitem">
-          <button class="faqq" aria-expanded="false">Do you work with early-stage products?<span class="plus">+</span></button>
-          <div class="faqa"><p>Yes. We'll tell you honestly if you need a prototype before a production build, even when that means a smaller first invoice.</p></div>
-        </div>
-        <div class="faqitem">
-          <button class="faqq" aria-expanded="false">What if our spec changes mid-build?<span class="plus">+</span></button>
-          <div class="faqa"><p>Specs change. We re-calibrate scope and timeline together at the start of the next cycle, in writing, instead of quietly absorbing it or quietly stalling.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT ================= -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="kicker">START A PROJECT</span>
-        <h2>Tell us what you're building.</h2>
-        <p>Send the shape of the problem. We'll reply with next steps, not a sales call.</p>
-      </div>
-      <div class="contactgrid">
-        <form id="contactForm" class="reveal-left" novalidate>
-          <div class="field">
-            <label for="cf-name">Name</label>
-            <input id="cf-name" name="name" type="text" required autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="cf-email">Email</label>
-            <input id="cf-email" name="email" type="email" required autocomplete="email">
-          </div>
-          <div class="field">
-            <label for="cf-msg">Project details</label>
-            <textarea id="cf-msg" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold">Send it over</button>
-          <p class="formmsg" id="formmsg" role="status">Opening your email app with this filled in. If nothing opens, email us directly instead.</p>
-        </form>
-        <div class="contact-side reveal-right">
-          <div class="item">
-            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6"/></svg>
-            <div><h4>Email</h4><p id="contactEmailLabel">hello@astomiq.com</p></div>
-          </div>
-          <div class="item">
-            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <div><h4>Response time</h4><p>Within one business day.</p></div>
-          </div>
-          <div class="item">
-            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.3" stroke="currentColor" stroke-width="1.6"/></svg>
-            <div><h4>Working remotely</h4><p>Distributed team, working across time zones with you.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="frow">
-    <div>
-      <a href="#main" class="word">
-        <img class="mark" src="assets/logo.png" alt="" width="44" height="44">
-        ASTOMIQ
-      </a>
-      <p class="tagline">Software built to the tolerance it deserves.</p>
-    </div>
-    <div class="flinks">
-      <div class="col">
-        <a href="#services">Services</a>
-        <a href="#process">How we work</a>
-        <a href="#work">Work</a>
-      </div>
-      <div class="col">
-        <a href="#about">About</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Start a project</a>
-      </div>
-    </div>
-  </div>
-  <div class="bottom">
-    <span>© <span id="year"></span> ASTOMIQ. All rights reserved.</span>
-    <span>Built as one continuous instrument.</span>
-  </div>
-</footer>
-
-<script>
-(function(){
-  "use strict";
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  /* ---------------- tick marks in fixed env svg ---------------- */
-  (function(){
-    var g = document.getElementById('tickmarks');
-    if(!g) return;
-    var html='';
-    for(var i=0;i<60;i++){
-      var a = (i/60)*Math.PI*2;
-      var r1=178, r2 = (i%5===0)?168:174;
-      var x1=200+Math.cos(a)*r1, y1=200+Math.sin(a)*r1;
-      var x2=200+Math.cos(a)*r2, y2=200+Math.sin(a)*r2;
-      html += '<line x1="'+x1.toFixed(1)+'" y1="'+y1.toFixed(1)+'" x2="'+x2.toFixed(1)+'" y2="'+y2.toFixed(1)+'"/>';
+      .stage .poster {
+        background-image: url('assets/hero-ending.jpg') !important
+      }
     }
-    g.innerHTML = html;
-  })();
 
-  /* ---------------- contact email obfuscation + mailto ---------------- */
-  var CONTACT_EMAIL = 'shokunsupapol@gmail.com';
-  document.getElementById('contactEmailLabel').textContent = CONTACT_EMAIL;
+    @media (max-height:560px) {
+      .chevron {
+        display: none
+      }
+    }
 
-  var form = document.getElementById('contactForm');
-  var formmsg = document.getElementById('formmsg');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var name = form.name.value.trim();
-    var email = form.email.value.trim();
-    var message = form.message.value.trim();
-    var subject = encodeURIComponent('New project inquiry from ' + (name || 'the ASTOMIQ site'));
-    var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
-    window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
-    formmsg.classList.add('show');
-  });
+    /* reduced motion: kill decorative motion globally */
+    @media (prefers-reduced-motion:reduce) {
 
-  /* ---------------- FAQ accordion ---------------- */
-  document.querySelectorAll('.faqitem').forEach(function(item){
-    var q = item.querySelector('.faqq');
-    var a = item.querySelector('.faqa');
-    q.addEventListener('click', function(){
-      var open = item.classList.contains('open');
-      document.querySelectorAll('.faqitem.open').forEach(function(o){
-        if(o!==item){ o.classList.remove('open'); o.querySelector('.faqq').setAttribute('aria-expanded','false'); o.querySelector('.faqa').style.maxHeight=null; }
+      *,
+      *::before,
+      *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important
+      }
+
+      .reveal,
+      .stagger>* {
+        opacity: 1 !important;
+        transform: none !important
+      }
+
+      .divider path.gold {
+        stroke-dashoffset: 0 !important
+      }
+
+      .env::before,
+      .env .ticks svg {
+        animation: none !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link" data-i18n="skip.link">Skip to content</a>
+
+  <div class="env" aria-hidden="true">
+    <div class="ticks">
+      <svg viewBox="0 0 400 400" aria-hidden="true">
+        <g fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.5">
+          <circle cx="200" cy="200" r="190" />
+        </g>
+        <g stroke="#00e5ff" stroke-width="1.4" opacity="0.35" id="tickmarks"></g>
+      </svg>
+    </div>
+  </div>
+
+  <header class="nav">
+    <a href="#main" class="word">
+      <img class="mark" src="assets/logo.png" alt="" width="44" height="44">
+      ASTOMIQ
+    </a>
+    <nav class="navlinks" aria-label="Primary">
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#process" data-i18n="nav.process">How we work</a>
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="langToggle" class="lang-toggle" type="button">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" />
+          <path d="M3 12h18M12 3c2.3 2.5 3.3 6 3.3 9s-1 6.5-3.3 9c-2.3-2.5-3.3-6-3.3-9s1-6.5 3.3-9z"
+            stroke="currentColor" stroke-width="1.6" />
+        </svg>
+        <span id="langToggleLabel">TH</span>
+      </button>
+      <a href="#contact" class="btn btn-gold" data-i18n="cta.startProject">Start a project</a>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <section class="hero" id="hero">
+      <div class="stage" id="stage">
+        <video id="heroVideo" preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+        <div class="poster" id="posterLayer"></div>
+        <div class="scrim" aria-hidden="true"></div>
+
+        <div class="bands" id="bands">
+          <div class="band" data-side="left" data-range="0,0.2" id="band1">
+            <div class="band-inner">
+              <span class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow">ASTOMIQ · SOFTWARE
+                  HOUSE</span></span>
+              <h1 id="band1-h">We build software to the tolerance it deserves.</h1>
+            </div>
+          </div>
+
+          <div class="band" data-side="right" data-range="0.27,0.47" id="band2">
+            <div class="band-inner">
+              <span class="eyebrow" data-i18n="hero.band2.eyebrow">INSIDE THE BUILD</span>
+              <div style="position:relative">
+                <p class="blursoft" id="band2-soft" data-i18n="hero.band2.p">No off-the-shelf guesses. We go straight to
+                  the components that make your product work.</p>
+                <p class="blurhard" id="band2-hard" data-i18n="hero.band2.p">No off-the-shelf guesses. We go straight to
+                  the components that make your product work.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="band" data-side="left" data-range="0.53,0.72" id="band3">
+            <div class="band-inner">
+              <span class="eyebrow"><span class="dot"></span><span data-i18n="hero.band3.eyebrow">DOWN TO THE
+                  CODE</span></span>
+              <h2 class="scatter" id="band3-h">Every line written on purpose, measured against the spec, not the demo.
+              </h2>
+            </div>
+          </div>
+
+          <div class="band" data-side="left" data-range="0.8,1.0" id="band4">
+            <div class="band-inner">
+              <span class="eyebrow" data-i18n="hero.band4.eyebrow">READY</span>
+              <h1 id="band4-h">Precision, delivered.</h1>
+              <p><span class="lede-w" style="--th:.15" data-i18n="hero.band4.p">Custom software built to spec, on
+                  schedule, made to last.</span></p>
+              <div class="cta-row">
+                <a href="#contact" class="btn btn-gold" data-i18n="cta.startProject">Start a project</a>
+                <a href="#work" class="btn btn-ghost" data-i18n="cta.seeWork">See our work</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="static-copy">
+          <div class="inner">
+            <span class="eyebrow" data-i18n="hero.eyebrow">ASTOMIQ · SOFTWARE HOUSE</span>
+            <h1 data-i18n="hero.band4.h">Precision, delivered.</h1>
+            <p data-i18n="static.p">ASTOMIQ builds custom software to the tolerance it deserves: web and mobile apps,
+              cloud systems, and AI, calibrated to your product and shipped on schedule.</p>
+            <a href="#contact" class="btn btn-gold" data-i18n="cta.startProject">Start a project</a>
+          </div>
+        </div>
+
+        <svg class="ring" id="ring" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="126"
+            style="stroke-dashoffset:var(--ld,126)" />
+        </svg>
+        <svg class="chevron" id="chevron" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"
+          style="display:none">
+          <path d="M1 1L11 12L21 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section id="services">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="kicker" data-i18n="services.kicker">WHAT WE BUILD</span>
+          <h2 data-i18n="services.h2">Six ways to put a working build in your hands.</h2>
+          <p data-i18n="services.p">Pick one, or hand us the whole problem. Every engagement starts with the same
+            question: what does this actually need to do.</p>
+        </div>
+        <div class="bento stagger-scale">
+          <div class="card">
+            <span class="num">01</span>
+            <div>
+              <h3 data-i18n="services.1.h">Custom Software Development</h3>
+              <p data-i18n="services.1.p">Applications built from your spec, not a template. We write the code your
+                product actually needs, and nothing it doesn't.</p>
+            </div>
+          </div>
+          <div class="card">
+            <span class="num">02</span>
+            <div>
+              <h3 data-i18n="services.2.h">Web &amp; Mobile Apps</h3>
+              <p data-i18n="services.2.p">Fast, accessible interfaces for the browser and the phone in your pocket.</p>
+            </div>
+          </div>
+          <div class="card">
+            <span class="num">03</span>
+            <div>
+              <h3 data-i18n="services.3.h">Cloud &amp; DevOps</h3>
+              <p data-i18n="services.3.p">Infrastructure that scales when you need it and stays quiet, and cheap, when
+                you don't.</p>
+            </div>
+          </div>
+          <div class="card">
+            <span class="num">04</span>
+            <div>
+              <h3 data-i18n="services.4.h">AI &amp; Data Engineering</h3>
+              <p data-i18n="services.4.p">Pipelines and models built on your own data, tuned to your numbers instead of
+                a generic benchmark.</p>
+            </div>
+          </div>
+          <div class="card">
+            <span class="num">05</span>
+            <div>
+              <h3 data-i18n="services.5.h">Product Consulting</h3>
+              <p data-i18n="services.5.p">We help you find the right scope before a single line of code gets written.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <span class="num">06</span>
+            <div>
+              <h3 data-i18n="services.6.h">Dedicated Teams</h3>
+              <p data-i18n="services.6.p">Engineers who work inside your team, on your schedule, for as long as you need
+                them.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <svg class="divider reveal" viewBox="0 0 1200 2" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,1 L1200,1" />
+      <path class="gold" d="M0,1 L1200,1" />
+    </svg>
+
+    <!-- ================= HOW WE WORK ================= -->
+    <section id="process">
+      <div class="wrap">
+        <div class="sec-head reveal-left">
+          <span class="kicker" data-i18n="process.kicker">HOW WE WORK</span>
+          <h2 data-i18n="process.h2">Five steps. Nothing hidden between them.</h2>
+          <p data-i18n="process.p">The same process on a two-week fix and a year-long build, sized to fit.</p>
+        </div>
+      </div>
+
+      <div class="steps-pin" id="stepsPin">
+        <div class="steps-stage">
+          <div class="steps-dots" id="stepsDots">
+            <span class="step-dot" data-i="0"></span>
+            <span class="step-dot" data-i="1"></span>
+            <span class="step-dot" data-i="2"></span>
+            <span class="step-dot" data-i="3"></span>
+            <span class="step-dot" data-i="4"></span>
+          </div>
+          <div class="steps-panels" id="stepsPanels">
+            <div class="step-panel" data-i="0"><span class="step-num">01</span>
+              <h3 data-i18n="process.1.h">Discover</h3>
+              <p data-i18n="process.1.p">We learn the problem before we touch a keyboard.</p>
+            </div>
+            <div class="step-panel" data-i="1"><span class="step-num">02</span>
+              <h3 data-i18n="process.2.h">Calibrate</h3>
+              <p data-i18n="process.2.p">We set the exact scope, budget, and timeline. In writing.</p>
+            </div>
+            <div class="step-panel" data-i="2"><span class="step-num">03</span>
+              <h3 data-i18n="process.3.h">Build</h3>
+              <p data-i18n="process.3.p">Short cycles. Working software every week, not every quarter.</p>
+            </div>
+            <div class="step-panel" data-i="3"><span class="step-num">04</span>
+              <h3 data-i18n="process.4.h">Verify</h3>
+              <p data-i18n="process.4.p">Every release is tested against the spec, not just the demo.</p>
+            </div>
+            <div class="step-panel" data-i="4"><span class="step-num">05</span>
+              <h3 data-i18n="process.5.h">Ship</h3>
+              <p data-i18n="process.5.p">We deploy it, watch it, and stay close after launch.</p>
+            </div>
+          </div>
+          <svg class="steps-chevron" id="stepsChevron" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true">
+            <path d="M1 1L11 12L21 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WORK ================= -->
+    <section id="work">
+      <div class="wrap">
+        <div class="sec-head reveal-scale">
+          <span class="kicker" data-i18n="work.kicker">REPRESENTATIVE WORK</span>
+          <h2 data-i18n="work.h2">The kind of problem we're built for.</h2>
+          <p data-i18n="work.p">Illustrative examples of the scope and shape of work we take on, not client case
+            studies.</p>
+        </div>
+        <div class="workgrid stagger-scale">
+          <div class="workcard">
+            <span class="tag" data-i18n="work.1.tag">LOGISTICS</span>
+            <h3 data-i18n="work.1.h">Dispatch platform rebuild</h3>
+            <p data-i18n="work.1.p">Replaced a twelve-year-old dispatch system with a real-time platform. Same team,
+              half the manual work.</p>
+          </div>
+          <div class="workcard">
+            <span class="tag" data-i18n="work.2.tag">FINTECH</span>
+            <h3 data-i18n="work.2.h">Reporting pipeline</h3>
+            <p data-i18n="work.2.p">Built a data pipeline that turns a week of manual reconciliation into an overnight
+              job.</p>
+          </div>
+          <div class="workcard">
+            <span class="tag" data-i18n="work.3.tag">HEALTHCARE</span>
+            <h3 data-i18n="work.3.h">Clinic scheduling system</h3>
+            <p data-i18n="work.3.p">Designed a booking system that cut no-shows and gave front-desk staff their
+              afternoons back.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <svg class="divider reveal" viewBox="0 0 1200 2" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,1 L1200,1" />
+      <path class="gold" d="M0,1 L1200,1" />
+    </svg>
+
+    <!-- ================= TECH STACK ================= -->
+    <section id="stack">
+      <div class="wrap">
+        <div class="sec-head reveal-right">
+          <span class="kicker" data-i18n="stack.kicker">TOOLS OF THE TRADE</span>
+          <h2 data-i18n="stack.h2">Instruments we trust, not whatever's trending.</h2>
+        </div>
+        <div class="stackgrid stagger">
+          <div class="stackgroup">
+            <h3 data-i18n="stack.languages">Languages</h3>
+            <div class="chiprow"><span class="chip">TypeScript</span><span class="chip">Python</span><span
+                class="chip">Go</span><span class="chip">Swift</span><span class="chip">Kotlin</span></div>
+          </div>
+          <div class="stackgroup">
+            <h3 data-i18n="stack.frontend">Frontend</h3>
+            <div class="chiprow"><span class="chip">React</span><span class="chip">Next.js</span><span
+                class="chip">SwiftUI</span></div>
+          </div>
+          <div class="stackgroup">
+            <h3 data-i18n="stack.backend">Backend</h3>
+            <div class="chiprow"><span class="chip">Node.js</span><span class="chip">Django</span><span
+                class="chip">PostgreSQL</span></div>
+          </div>
+          <div class="stackgroup">
+            <h3 data-i18n="stack.cloud">Cloud</h3>
+            <div class="chiprow"><span class="chip">AWS</span><span class="chip">GCP</span><span
+                class="chip">Docker</span><span class="chip">Kubernetes</span></div>
+          </div>
+          <div class="stackgroup">
+            <h3 data-i18n="stack.aidata">AI &amp; Data</h3>
+            <div class="chiprow"><span class="chip">PyTorch</span><span class="chip">Airflow</span><span
+                class="chip">dbt</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about">
+      <div class="wrap split">
+        <div class="reveal-left">
+          <span class="kicker" data-i18n="about.kicker">ABOUT ASTOMIQ</span>
+          <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:.7em" data-i18n="about.h2">We treat every build
+            like an instrument, not an experiment.</h2>
+          <p data-i18n="about.p1">ASTOMIQ is a software house for teams who are done guessing. We come from product
+            engineering, not just outsourcing: every project gets a real spec, a real timeline, and a team that stays
+            until it's calibrated to what you actually needed.</p>
+          <p data-i18n="about.p2">We're small on purpose. Every engagement gets senior engineers, not a rotating cast,
+            and a single point of contact who can answer for the whole build.</p>
+        </div>
+        <div class="reveal-right imgwrap">
+          <img src="assets/hero-ending.jpg"
+            alt="The ASTOMIQ mark formed from converging lines of light, resting in a dark cyan-lit space."
+            loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <svg class="divider reveal" viewBox="0 0 1200 2" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,1 L1200,1" />
+      <path class="gold" d="M0,1 L1200,1" />
+    </svg>
+
+    <!-- ================= FAQ ================= -->
+    <section id="faq">
+      <div class="wrap" style="max-width:820px">
+        <div class="sec-head reveal">
+          <span class="kicker" data-i18n="faq.kicker">QUESTIONS</span>
+          <h2 data-i18n="faq.h2">What people ask before they start.</h2>
+        </div>
+        <div class="faqlist reveal">
+          <div class="faqitem">
+            <button class="faqq" aria-expanded="false"><span data-i18n="faq.1.q">How long does a project
+                take?</span><span class="plus">+</span></button>
+            <div class="faqa">
+              <p data-i18n="faq.1.a">Most builds run eight to sixteen weeks, in shippable stages. A focused fix can land
+                in two. We give you a real date at the Calibrate step, not a guess.</p>
+            </div>
+          </div>
+          <div class="faqitem">
+            <button class="faqq" aria-expanded="false"><span data-i18n="faq.2.q">What does it cost?</span><span
+                class="plus">+</span></button>
+            <div class="faqa">
+              <p data-i18n="faq.2.a">It depends on scope, so we quote after Discover, not before it. You get a fixed
+                number for a fixed scope, or a weekly rate for an open-ended team, your choice.</p>
+            </div>
+          </div>
+          <div class="faqitem">
+            <button class="faqq" aria-expanded="false"><span data-i18n="faq.3.q">Who owns the code?</span><span
+                class="plus">+</span></button>
+            <div class="faqa">
+              <p data-i18n="faq.3.a">You do. Full source, full rights, transferred at each milestone, not held back
+                until the end.</p>
+            </div>
+          </div>
+          <div class="faqitem">
+            <button class="faqq" aria-expanded="false"><span data-i18n="faq.4.q">Do you work with early-stage
+                products?</span><span class="plus">+</span></button>
+            <div class="faqa">
+              <p data-i18n="faq.4.a">Yes. We'll tell you honestly if you need a prototype before a production build,
+                even when that means a smaller first invoice.</p>
+            </div>
+          </div>
+          <div class="faqitem">
+            <button class="faqq" aria-expanded="false"><span data-i18n="faq.5.q">What if our spec changes
+                mid-build?</span><span class="plus">+</span></button>
+            <div class="faqa">
+              <p data-i18n="faq.5.a">Specs change. We re-calibrate scope and timeline together at the start of the next
+                cycle, in writing, instead of quietly absorbing it or quietly stalling.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="kicker" data-i18n="contact.kicker">START A PROJECT</span>
+          <h2 data-i18n="contact.h2">Tell us what you're building.</h2>
+          <p data-i18n="contact.p">Send the shape of the problem. We'll reply with next steps, not a sales call.</p>
+        </div>
+        <div class="contactgrid">
+          <form id="contactForm" class="reveal-left" novalidate>
+            <div class="field">
+              <label for="cf-name" data-i18n="contact.name">Name</label>
+              <input id="cf-name" name="name" type="text" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="cf-email" data-i18n="contact.email">Email</label>
+              <input id="cf-email" name="email" type="email" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="cf-msg" data-i18n="contact.details">Project details</label>
+              <textarea id="cf-msg" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold" data-i18n="cta.sendItOver">Send it over</button>
+            <p class="formmsg" id="formmsg" role="status" data-i18n="contact.formmsg">Opening your email app with this
+              filled in. If nothing opens, email us directly instead.</p>
+          </form>
+          <div class="contact-side reveal-right">
+            <div class="item">
+              <div class="item-row">
+                <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.6" />
+                  <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" />
+                </svg>
+                <h4 data-i18n="contact.email">Email</h4>
+              </div>
+              <p id="contactEmailLabel">hello@astomiq.com</p>
+            </div>
+            <div class="item">
+              <div class="item-row">
+                <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" />
+                  <path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+                <h4 data-i18n="contact.responseTime.h">Response time</h4>
+              </div>
+              <p data-i18n="contact.responseTime.p">Within one business day.</p>
+            </div>
+            <div class="item">
+              <div class="item-row">
+                <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" stroke="currentColor"
+                    stroke-width="1.6" />
+                  <circle cx="12" cy="9.5" r="2.3" stroke="currentColor" stroke-width="1.6" />
+                </svg>
+                <h4 data-i18n="contact.remote.h">Working remotely</h4>
+              </div>
+              <p data-i18n="contact.remote.p">Distributed team, working across time zones with you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="frow">
+      <div>
+        <a href="#main" class="word">
+          <img class="mark" src="assets/logo.png" alt="" width="44" height="44">
+          ASTOMIQ
+        </a>
+        <p class="tagline" data-i18n="footer.tagline">Software built to the tolerance it deserves.</p>
+      </div>
+      <div class="flinks">
+        <div class="col">
+          <a href="#services" data-i18n="nav.services">Services</a>
+          <a href="#process" data-i18n="nav.process">How we work</a>
+          <a href="#work" data-i18n="nav.work">Work</a>
+        </div>
+        <div class="col">
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#faq" data-i18n="nav.faq">FAQ</a>
+          <a href="#contact" data-i18n="cta.startProject">Start a project</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span id="copyrightLine">© <span id="year"></span> ASTOMIQ. All rights reserved.</span>
+      <span data-i18n="footer.builtAs">Built as one continuous instrument.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+      var CURRENT_YEAR = new Date().getFullYear();
+      document.getElementById('year').textContent = CURRENT_YEAR;
+
+      /* ---------------- tick marks in fixed env svg ---------------- */
+      (function () {
+        var g = document.getElementById('tickmarks');
+        if (!g) return;
+        var html = '';
+        for (var i = 0; i < 60; i++) {
+          var a = (i / 60) * Math.PI * 2;
+          var r1 = 178, r2 = (i % 5 === 0) ? 168 : 174;
+          var x1 = 200 + Math.cos(a) * r1, y1 = 200 + Math.sin(a) * r1;
+          var x2 = 200 + Math.cos(a) * r2, y2 = 200 + Math.sin(a) * r2;
+          html += '<line x1="' + x1.toFixed(1) + '" y1="' + y1.toFixed(1) + '" x2="' + x2.toFixed(1) + '" y2="' + y2.toFixed(1) + '"/>';
+        }
+        g.innerHTML = html;
+      })();
+
+      /* ---------------- contact email obfuscation + mailto ---------------- */
+      var CONTACT_EMAIL = 'shokunsupapol@gmail.com';
+      document.getElementById('contactEmailLabel').textContent = CONTACT_EMAIL;
+
+      var form = document.getElementById('contactForm');
+      var formmsg = document.getElementById('formmsg');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = form.name.value.trim();
+        var email = form.email.value.trim();
+        var message = form.message.value.trim();
+        var subject = encodeURIComponent(t('mail.subject') + (name || t('mail.fallbackName')));
+        var body = encodeURIComponent(t('mail.name') + ': ' + name + '\n' + t('mail.email') + ': ' + email + '\n\n' + message);
+        window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+        formmsg.classList.add('show');
       });
-      if(open){
-        item.classList.remove('open'); q.setAttribute('aria-expanded','false'); a.style.maxHeight = null;
-      } else {
-        item.classList.add('open'); q.setAttribute('aria-expanded','true'); a.style.maxHeight = a.scrollHeight + 'px';
-      }
-    });
-  });
 
-  /* ---------------- reveal / stagger entrances ---------------- */
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        entry.target.classList.add('in');
-        io.unobserve(entry.target);
-      }
-    });
-  }, {threshold:.18, rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger, .stagger-scale, .divider').forEach(function(el){ io.observe(el); });
-  // retire stagger delays after entrance so later hovers never lag
-  document.querySelectorAll('.stagger, .stagger-scale').forEach(function(el){
-    el.addEventListener('transitionend', function once(e){
-      if(e.propertyName==='transform'){ document.body.classList.add('stagger-settled'); }
-    });
-  });
-
-  /* ---------------- pause offscreen / hidden-tab animation ---------------- */
-  document.addEventListener('visibilitychange', function(){
-    document.body.classList.toggle('paused', document.hidden);
-  });
-
-  /* ================================================================
-     HERO SCRUB ENGINE
-     ================================================================ */
-  var video = document.getElementById('heroVideo');
-  var stage = document.getElementById('stage');
-  var posterLayer = document.getElementById('posterLayer');
-  var ring = document.getElementById('ring');
-  var chevron = document.getElementById('chevron');
-  var heroEl = document.getElementById('hero');
-  var bandsEl = document.getElementById('bands');
-  var bandEls = Array.prototype.slice.call(document.querySelectorAll('.band'));
-
-  var bands = bandEls.map(function(el){
-    var r = el.getAttribute('data-range').split(',').map(Number);
-    return {el:el, a:r[0], b:r[1], op:-1, k:-1};
-  });
-
-  posterLayer.style.backgroundImage = "url('assets/hero-poster.jpg')";
-
-  var started = false;
-  function startBlobFetch(){
-    if(started) return; started = true;
-    loadHeroBlob().catch(failVideo);
-  }
-  var posterImg = new Image();
-  posterImg.onload = startBlobFetch;
-  posterImg.onerror = startBlobFetch;
-  posterImg.src = 'assets/hero-poster.jpg';
-  setTimeout(startBlobFetch, 4000);
-
-  var VIDEO_URL = 'assets/hero-scrub.mp4';
-  var VIDEO_BYTES = 6640395;
-  function loadHeroBlob(){
-    var ctrl = new AbortController();
-    var watchdog = setTimeout(function(){ ctrl.abort(); }, 20000);
-    return fetch(VIDEO_URL, {signal: ctrl.signal}).then(function(res){
-      var total = Number(res.headers.get('Content-Length')) || VIDEO_BYTES;
-      var reader = res.body.getReader();
-      var chunks = [];
-      var got = 0, lastRing = 0;
-      function pump(){
-        return reader.read().then(function(result){
-          if(result.done){
-            clearTimeout(watchdog);
-            ring.style.setProperty('--ld', 0);
-            video.src = URL.createObjectURL(new Blob(chunks));
-            video.load();
-            video.addEventListener('canplay', function once(){
-              video.removeEventListener('canplay', once);
-              requestSeek(heroProgress() * (video.duration || 0));
-              stage.classList.add('video-ready');
-              ring.classList.add('hide');
-              chevron.style.display = '';
-            }, {once:true});
-            return;
+      /* ---------------- FAQ accordion ---------------- */
+      document.querySelectorAll('.faqitem').forEach(function (item) {
+        var q = item.querySelector('.faqq');
+        var a = item.querySelector('.faqa');
+        q.addEventListener('click', function () {
+          var open = item.classList.contains('open');
+          document.querySelectorAll('.faqitem.open').forEach(function (o) {
+            if (o !== item) { o.classList.remove('open'); o.querySelector('.faqq').setAttribute('aria-expanded', 'false'); o.querySelector('.faqa').style.maxHeight = null; }
+          });
+          if (open) {
+            item.classList.remove('open'); q.setAttribute('aria-expanded', 'false'); a.style.maxHeight = null;
+          } else {
+            item.classList.add('open'); q.setAttribute('aria-expanded', 'true'); a.style.maxHeight = a.scrollHeight + 'px';
           }
-          clearTimeout(watchdog);
-          watchdog = setTimeout(function(){ ctrl.abort(); }, 20000);
-          chunks.push(result.value);
-          got += result.value.length;
-          var frac = Math.min(1, got / total);
-          var now = performance.now();
-          if(now - lastRing > 100 || frac === 1){
-            lastRing = now;
-            ring.style.setProperty('--ld', Math.round(126 * (1 - frac)));
+        });
+      });
+
+      /* ---------------- reveal / stagger entrances ---------------- */
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .18, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger, .stagger-scale, .divider').forEach(function (el) { io.observe(el); });
+      // retire stagger delays after entrance so later hovers never lag
+      document.querySelectorAll('.stagger, .stagger-scale').forEach(function (el) {
+        el.addEventListener('transitionend', function once(e) {
+          if (e.propertyName === 'transform') { document.body.classList.add('stagger-settled'); }
+        });
+      });
+
+      /* ---------------- pause offscreen / hidden-tab animation ---------------- */
+      document.addEventListener('visibilitychange', function () {
+        document.body.classList.toggle('paused', document.hidden);
+      });
+
+      /* ================================================================
+         HERO SCRUB ENGINE
+         ================================================================ */
+      var video = document.getElementById('heroVideo');
+      var stage = document.getElementById('stage');
+      var posterLayer = document.getElementById('posterLayer');
+      var ring = document.getElementById('ring');
+      var chevron = document.getElementById('chevron');
+      var heroEl = document.getElementById('hero');
+      var bandsEl = document.getElementById('bands');
+      var bandEls = Array.prototype.slice.call(document.querySelectorAll('.band'));
+
+      var bands = bandEls.map(function (el) {
+        var r = el.getAttribute('data-range').split(',').map(Number);
+        return { el: el, a: r[0], b: r[1], op: -1, k: -1 };
+      });
+
+      posterLayer.style.backgroundImage = "url('assets/hero-poster.jpg')";
+
+      var started = false;
+      function startBlobFetch() {
+        if (started) return; started = true;
+        loadHeroBlob().catch(failVideo);
+      }
+      var posterImg = new Image();
+      posterImg.onload = startBlobFetch;
+      posterImg.onerror = startBlobFetch;
+      posterImg.src = 'assets/hero-poster.jpg';
+      setTimeout(startBlobFetch, 4000);
+
+      var VIDEO_URL = 'assets/hero-scrub.mp4';
+      var VIDEO_BYTES = 6640395;
+      function loadHeroBlob() {
+        var ctrl = new AbortController();
+        var watchdog = setTimeout(function () { ctrl.abort(); }, 20000);
+        return fetch(VIDEO_URL, { signal: ctrl.signal }).then(function (res) {
+          var total = Number(res.headers.get('Content-Length')) || VIDEO_BYTES;
+          var reader = res.body.getReader();
+          var chunks = [];
+          var got = 0, lastRing = 0;
+          function pump() {
+            return reader.read().then(function (result) {
+              if (result.done) {
+                clearTimeout(watchdog);
+                ring.style.setProperty('--ld', 0);
+                video.src = URL.createObjectURL(new Blob(chunks));
+                video.load();
+                video.addEventListener('canplay', function once() {
+                  video.removeEventListener('canplay', once);
+                  requestSeek(heroProgress() * (video.duration || 0));
+                  stage.classList.add('video-ready');
+                  ring.classList.add('hide');
+                  chevron.style.display = '';
+                }, { once: true });
+                return;
+              }
+              clearTimeout(watchdog);
+              watchdog = setTimeout(function () { ctrl.abort(); }, 20000);
+              chunks.push(result.value);
+              got += result.value.length;
+              var frac = Math.min(1, got / total);
+              var now = performance.now();
+              if (now - lastRing > 100 || frac === 1) {
+                lastRing = now;
+                ring.style.setProperty('--ld', Math.round(126 * (1 - frac)));
+              }
+              return pump();
+            });
           }
           return pump();
         });
       }
-      return pump();
-    });
-  }
-  function failVideo(){
-    ring.classList.add('hide');
-    chevron.style.display = '';
-    stage.classList.add('video-failed');
-  }
-
-  /* gated seeks */
-  var seekBusy = false, pendingTime = null;
-  function requestSeek(t){
-    if(!video.duration) return;
-    if(seekBusy){ pendingTime = t; return; }
-    seekBusy = true;
-    try{ video.currentTime = t; }catch(e){ seekBusy = false; }
-  }
-  video.addEventListener('seeked', function(){
-    seekBusy = false;
-    if(pendingTime !== null){ var t = pendingTime; pendingTime = null; requestSeek(t); }
-  });
-  video.addEventListener('error', function(){ seekBusy = false; pendingTime = null; failVideo(); });
-
-  /* hero progress 0..1 across the pinned range */
-  function heroProgress(){
-    var rect = heroEl.getBoundingClientRect();
-    var total = heroEl.offsetHeight - window.innerHeight;
-    if(total <= 0) return 0;
-    var scrolled = -rect.top;
-    return Math.min(1, Math.max(0, scrolled / total));
-  }
-
-  var smoothstep = function(p,e0,e1){
-    var t = Math.min(1, Math.max(0, (p-e0)/(e1-e0)));
-    return t*t*(3-2*t);
-  };
-  function clamp(v,lo,hi){ return Math.min(hi, Math.max(lo, v)); }
-
-  var loadStart = performance.now();
-  function updateCaptions(p){
-    bands.forEach(function(band){
-      var a = band.a, b = band.b;
-      var f = Math.min(0.02, (b-a)/3);
-      var op;
-      var isFirst = (a === bands[0].a);
-      var isLast = (b === bands[bands.length-1].b);
-      if(isFirst){
-        op = 1 - smoothstep(p, b-f, b);
-      } else if(isLast){
-        op = smoothstep(p, a, a+f);
-      } else {
-        op = smoothstep(p, a, a+f) * (1 - smoothstep(p, b-f, b));
+      function failVideo() {
+        ring.classList.add('hide');
+        chevron.style.display = '';
+        stage.classList.add('video-failed');
       }
-      // band one gets a load-based ramp merged with scroll k
-      var ramp = Math.min(0.025, (b-a)*0.35);
-      var scrollK = clamp((p - a) / (ramp || 0.02), 0, 1);
-      var k = scrollK;
-      if(isFirst){
-        var loadK = clamp((performance.now() - loadStart) / 900, 0, 1);
-        k = Math.max(scrollK, loadK);
-        op = Math.max(op, loadK * (1 - smoothstep(p, b-f, b)));
+
+      /* gated seeks */
+      var seekBusy = false, pendingTime = null;
+      function requestSeek(t) {
+        if (!video.duration) return;
+        if (seekBusy) { pendingTime = t; return; }
+        seekBusy = true;
+        try { video.currentTime = t; } catch (e) { seekBusy = false; }
       }
-      if(Math.abs(op - band.op) > 0.004){
-        band.op = op;
-        band.el.style.opacity = op;
-        band.el.style.pointerEvents = op > 0.5 ? 'auto' : 'none';
-      }
-      if(Math.abs(k - band.k) > 0.008){
-        band.k = k;
-        band.el.style.setProperty('--k', k.toFixed(4));
-      }
-    });
-  }
-
-  /* lerp raf loop */
-  var target = 0, shown = 0, rafId = null, lastTick = 0, heroOnScreen = false;
-  function tick(now){
-    var dt = Math.min(100, now - (lastTick || now));
-    lastTick = now;
-    var kk = 0.16;
-    shown += (target - shown) * (1 - Math.pow(1-kk, dt/16.667));
-    if(Math.abs(target - shown) < 0.0005){ shown = target; rafId = null; lastTick = 0; }
-    else { rafId = requestAnimationFrame(tick); }
-    if(video.duration) requestSeek(shown * video.duration);
-    updateCaptions(shown);
-  }
-  function onScroll(){
-    target = heroProgress();
-    if(rafId === null && heroOnScreen) rafId = requestAnimationFrame(tick);
-  }
-  var heroObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      heroOnScreen = e.isIntersecting;
-      if(heroOnScreen && rafId === null) rafId = requestAnimationFrame(tick);
-    });
-  }, {threshold:0});
-  heroObs.observe(heroEl);
-
-  /* ---------------- static hero gates (identical strings to CSS) ---------------- */
-  var GATES = [
-    '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)',
-    '(prefers-reduced-motion: reduce)'
-  ];
-  var scrubOn = false;
-  function enableScrub(){
-    if(scrubOn) return; scrubOn = true;
-    startBlobFetch();
-    addEventListener('scroll', onScroll, {passive:true});
-    bands.forEach(function(b){ b.op = -1; b.k = -1; });
-    updateCaptions(heroProgress());
-    onScroll();
-  }
-  function disableScrub(){
-    if(!scrubOn) return; scrubOn = false;
-    removeEventListener('scroll', onScroll);
-    if(rafId !== null){ cancelAnimationFrame(rafId); rafId = null; }
-  }
-  function applyHeroMode(){
-    var gated = GATES.some(function(q){ return matchMedia(q).matches; });
-    if(gated) disableScrub(); else enableScrub();
-  }
-  var MQLS = GATES.map(function(q){ return matchMedia(q); });
-  MQLS.forEach(function(m){ m.addEventListener('change', applyHeroMode); });
-  applyHeroMode();
-
-  /* reduced motion live pin/unpin for below-fold choreography */
-  var railFill = document.getElementById('railFill');
-  var stepsEls = Array.prototype.slice.call(document.querySelectorAll('#process .step'));
-  function pinToFinalStates(){
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger, .stagger-scale').forEach(function(el){ el.classList.add('in'); });
-    document.querySelectorAll('.divider').forEach(function(el){ el.classList.add('in'); });
-    if(railFill) railFill.style.width = '100%';
-    stepsEls.forEach(function(s){ s.classList.add('lit'); });
-  }
-  matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function(e){
-    if(e.matches) pinToFinalStates();
-    else applyHeroMode();
-  });
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches) pinToFinalStates();
-
-  /* ---------------- word / character split with seeded rng ---------------- */
-  function rng(seed){
-    var s = seed >>> 0;
-    return function(){ s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; };
-  }
-  function splitWords(el, opts){
-    opts = opts || {};
-    var text = el.textContent.trim();
-    var words = text.split(/\s+/);
-    var r = rng(opts.seed || 7);
-    var visuallyHidden = document.createElement('span');
-    visuallyHidden.className = 'sr-only';
-    visuallyHidden.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)';
-    visuallyHidden.textContent = text;
-    el.textContent = '';
-    el.appendChild(visuallyHidden);
-    var visual = document.createElement('span');
-    visual.setAttribute('aria-hidden','true');
-    words.forEach(function(word, wi){
-      var w = document.createElement('span');
-      w.className = 'w';
-      var th = (wi/words.length)*0.6 + r()*0.06;
-      w.style.setProperty('--th', th.toFixed(3));
-      if(opts.chars){
-        var cwrap = document.createElement('span');
-        cwrap.className = 'cwrap' + (opts.scatter ? ' scatter' : '');
-        word.split('').forEach(function(ch, ci){
-          var c = document.createElement('span');
-          c.className = 'c';
-          c.textContent = ch;
-          var cth = th + ci*0.012 + r()*0.02;
-          c.style.setProperty('--th', cth.toFixed(3));
-          c.style.setProperty('--jx', ((r()*30-15)).toFixed(1)+'px');
-          c.style.setProperty('--jy', ((r()*24-12)).toFixed(1)+'px');
-          c.style.setProperty('--jr', ((r()*18-9)).toFixed(1)+'deg');
-          cwrap.appendChild(c);
-        });
-        w.appendChild(cwrap);
-      } else {
-        w.textContent = word;
-      }
-      visual.appendChild(w);
-      visual.appendChild(document.createTextNode(' '));
-    });
-    el.appendChild(visual);
-  }
-  splitWords(document.getElementById('band1-h'));
-  splitWords(document.getElementById('band3-h'), {seed:19, chars:true, scatter:true});
-  splitWords(document.getElementById('band4-h'));
-
-  /* ---------------- process rail: lit dots on scroll ---------------- */
-  var procObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        var idx = Number(entry.target.getAttribute('data-i'));
-        setTimeout(function(){
-          entry.target.classList.add('lit');
-          if(railFill){
-            var pct = ((idx+1)/stepsEls.length)*100;
-            railFill.style.width = Math.max(parseFloat(railFill.style.width)||0, pct) + '%';
-          }
-        }, idx*90);
-        procObs.unobserve(entry.target);
-      }
-    });
-  }, {threshold:.5});
-  stepsEls.forEach(function(s){ procObs.observe(s); });
-
-  /* ---------------- calibrate: press-and-hold interactive moment ---------------- */
-  (function(){
-    var dial = document.getElementById('dial');
-    var fill = document.getElementById('dialFill');
-    var label = document.getElementById('dialLabel');
-    var wrap = document.getElementById('calibrate');
-    var CIRC = 251;
-    var progress = 0, holding = false, raf = null, done = false;
-    var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function render(){
-      fill.style.strokeDashoffset = (CIRC * (1 - progress)).toFixed(1);
-      if(progress >= 1 && !done){
-        done = true;
-        wrap.classList.add('done');
-        label.innerHTML = 'Calibrated';
-        stepsEls.forEach(function(s, i){ setTimeout(function(){ s.classList.add('lit'); }, i*120); });
-        if(railFill) railFill.style.width = '100%';
-      }
-    }
-    function loop(){
-      if(holding && progress < 1){ progress = Math.min(1, progress + 0.014); render(); raf = requestAnimationFrame(loop); }
-      else if(!holding && progress > 0 && !done){ progress = Math.max(0, progress - 0.02); render(); raf = requestAnimationFrame(loop); }
-    }
-    function start(e){ if(done) return; e.preventDefault(); holding = true; if(!raf) raf = requestAnimationFrame(loop); }
-    function stop(){ holding = false; }
-    dial.addEventListener('pointerdown', start);
-    addEventListener('pointerup', stop);
-    addEventListener('pointercancel', stop);
-    dial.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); if(!done){ progress = 1; render(); } }
-    });
-    if(reduced){ progress = 1; render(); }
-  })();
-
-  /* ---------------- particles (whisper level, decorative sections) ---------------- */
-  (function(){
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var host = document.getElementById('services');
-    if(!host) return;
-    var layer = document.createElement('div');
-    layer.className = 'particles';
-    layer.setAttribute('aria-hidden','true');
-    var r = rng(3);
-    for(var i=0;i<14;i++){
-      var s = document.createElement('span');
-      s.style.left = (r()*100).toFixed(1)+'%';
-      s.style.top = (60+r()*35).toFixed(1)+'%';
-      s.style.animationDelay = (-(r()*14)).toFixed(1)+'s';
-      s.style.animationDuration = (10+r()*8).toFixed(1)+'s';
-      layer.appendChild(s);
-    }
-    host.style.position = host.style.position || 'relative';
-    host.insertBefore(layer, host.firstChild);
-  })();
-
-  /* ---------------- custom cursor + magnetic hover ---------------- */
-  (function(){
-    if(!matchMedia('(pointer: fine)').matches) return;
-    var dot = document.createElement('div'); dot.className = 'cursor-dot'; dot.setAttribute('aria-hidden','true');
-    var ring = document.createElement('div'); ring.className = 'cursor-ring'; ring.setAttribute('aria-hidden','true');
-    document.body.appendChild(dot);
-    document.body.appendChild(ring);
-    document.body.classList.add('custom-cursor');
-
-    var mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my, shown = false;
-    addEventListener('mousemove', function(e){
-      mx = e.clientX; my = e.clientY;
-      if(!shown){ shown = true; dot.style.opacity = '1'; ring.style.opacity = '1'; }
-    }, {passive:true});
-    addEventListener('mouseleave', function(){ dot.style.opacity = '0'; ring.style.opacity = '0'; });
-
-    function raf(){
-      rx += (mx - rx) * 0.18;
-      ry += (my - ry) * 0.18;
-      dot.style.transform = 'translate(' + mx.toFixed(1) + 'px,' + my.toFixed(1) + 'px) translate(-50%,-50%)';
-      ring.style.left = rx.toFixed(1) + 'px';
-      ring.style.top = ry.toFixed(1) + 'px';
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    var hoverSel = 'a, button, .card, .workcard, .chip, .dial, input, textarea, .faqq';
-    document.addEventListener('mouseover', function(e){ if(e.target.closest(hoverSel)) ring.classList.add('hover'); });
-    document.addEventListener('mouseout', function(e){ if(e.target.closest(hoverSel)) ring.classList.remove('hover'); });
-
-    if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
-      document.querySelectorAll('.bento .card, .workcard').forEach(function(el){
-        el.addEventListener('mousemove', function(e){
-          var r = el.getBoundingClientRect();
-          var relX = e.clientX - r.left - r.width/2;
-          var relY = e.clientY - r.top - r.height/2;
-          el.style.transform = 'translate(' + (relX*0.05).toFixed(1) + 'px,' + (relY*0.05).toFixed(1) + 'px)';
-        });
-        el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
+      video.addEventListener('seeked', function () {
+        seekBusy = false;
+        if (pendingTime !== null) { var t = pendingTime; pendingTime = null; requestSeek(t); }
       });
-    }
-  })();
+      video.addEventListener('error', function () { seekBusy = false; pendingTime = null; failVideo(); });
 
-})();
-</script>
+      /* hero progress 0..1 across the pinned range */
+      function heroProgress() {
+        var rect = heroEl.getBoundingClientRect();
+        var total = heroEl.offsetHeight - window.innerHeight;
+        if (total <= 0) return 0;
+        var scrolled = -rect.top;
+        return Math.min(1, Math.max(0, scrolled / total));
+      }
+
+      var smoothstep = function (p, e0, e1) {
+        var t = Math.min(1, Math.max(0, (p - e0) / (e1 - e0)));
+        return t * t * (3 - 2 * t);
+      };
+      function clamp(v, lo, hi) { return Math.min(hi, Math.max(lo, v)); }
+
+      var loadStart = performance.now();
+      function updateCaptions(p) {
+        bands.forEach(function (band) {
+          var a = band.a, b = band.b;
+          var f = Math.min(0.02, (b - a) / 3);
+          var op;
+          var isFirst = (a === bands[0].a);
+          var isLast = (b === bands[bands.length - 1].b);
+          if (isFirst) {
+            op = 1 - smoothstep(p, b - f, b);
+          } else if (isLast) {
+            op = smoothstep(p, a, a + f);
+          } else {
+            op = smoothstep(p, a, a + f) * (1 - smoothstep(p, b - f, b));
+          }
+          // band one gets a load-based ramp merged with scroll k
+          var ramp = Math.min(0.025, (b - a) * 0.35);
+          var scrollK = clamp((p - a) / (ramp || 0.02), 0, 1);
+          var k = scrollK;
+          if (isFirst) {
+            var loadK = clamp((performance.now() - loadStart) / 900, 0, 1);
+            k = Math.max(scrollK, loadK);
+            op = Math.max(op, loadK * (1 - smoothstep(p, b - f, b)));
+          }
+          if (Math.abs(op - band.op) > 0.004) {
+            band.op = op;
+            band.el.style.opacity = op;
+            band.el.style.pointerEvents = op > 0.5 ? 'auto' : 'none';
+          }
+          if (Math.abs(k - band.k) > 0.008) {
+            band.k = k;
+            band.el.style.setProperty('--k', k.toFixed(4));
+          }
+        });
+      }
+
+      /* lerp raf loop */
+      var target = 0, shown = 0, rafId = null, lastTick = 0, heroOnScreen = false;
+      function tick(now) {
+        var dt = Math.min(100, now - (lastTick || now));
+        lastTick = now;
+        var kk = 0.16;
+        shown += (target - shown) * (1 - Math.pow(1 - kk, dt / 16.667));
+        var loadRampDone = (now - loadStart) > 950;
+        if (Math.abs(target - shown) < 0.0005 && loadRampDone) { shown = target; rafId = null; lastTick = 0; }
+        else { rafId = requestAnimationFrame(tick); }
+        if (video.duration) requestSeek(shown * video.duration);
+        updateCaptions(shown);
+      }
+      function onScroll() {
+        target = heroProgress();
+        if (rafId === null && heroOnScreen) rafId = requestAnimationFrame(tick);
+      }
+      var heroObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          heroOnScreen = e.isIntersecting;
+          if (heroOnScreen && rafId === null) rafId = requestAnimationFrame(tick);
+        });
+      }, { threshold: 0 });
+      heroObs.observe(heroEl);
+
+      /* ---------------- static hero gates (identical strings to CSS) ---------------- */
+      var GATES = [
+        '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)',
+        '(prefers-reduced-motion: reduce)'
+      ];
+      var scrubOn = false;
+      function enableScrub() {
+        if (scrubOn) return; scrubOn = true;
+        startBlobFetch();
+        addEventListener('scroll', onScroll, { passive: true });
+        bands.forEach(function (b) { b.op = -1; b.k = -1; });
+        updateCaptions(heroProgress());
+        onScroll();
+      }
+      function disableScrub() {
+        if (!scrubOn) return; scrubOn = false;
+        removeEventListener('scroll', onScroll);
+        if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+      }
+      function applyHeroMode() {
+        var gated = GATES.some(function (q) { return matchMedia(q).matches; });
+        if (gated) disableScrub(); else enableScrub();
+      }
+      var MQLS = GATES.map(function (q) { return matchMedia(q); });
+      MQLS.forEach(function (m) { m.addEventListener('change', applyHeroMode); });
+      applyHeroMode();
+
+      /* reduced motion live pin/unpin for below-fold choreography */
+      function pinToFinalStates() {
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger, .stagger-scale').forEach(function (el) { el.classList.add('in'); });
+        document.querySelectorAll('.divider').forEach(function (el) { el.classList.add('in'); });
+      }
+      matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function (e) {
+        if (e.matches) pinToFinalStates();
+        else applyHeroMode();
+      });
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) pinToFinalStates();
+
+      /* ---------------- word / character split with seeded rng ---------------- */
+      function rng(seed) {
+        var s = seed >>> 0;
+        return function () { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; };
+      }
+      function splitWords(el, opts) {
+        opts = opts || {};
+        var text = el.textContent.trim();
+        // Thai has no inter-word spaces; a space here marks a whole clause
+        // boundary, not a short word. Splitting those into separate staggered
+        // spans lets the browser's own Thai line-breaker wrap them irregularly,
+        // producing uneven gaps. Keep Thai as one flowing unit instead.
+        var words = opts.wholeUnit ? [text] : text.split(/\s+/);
+        var r = rng(opts.seed || 7);
+        var visuallyHidden = document.createElement('span');
+        visuallyHidden.className = 'sr-only';
+        visuallyHidden.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)';
+        visuallyHidden.textContent = text;
+        el.textContent = '';
+        el.appendChild(visuallyHidden);
+        var visual = document.createElement('span');
+        visual.setAttribute('aria-hidden', 'true');
+        words.forEach(function (word, wi) {
+          var w = document.createElement('span');
+          w.className = 'w';
+          var th = (wi / words.length) * 0.6 + r() * 0.06;
+          w.style.setProperty('--th', th.toFixed(3));
+          if (opts.chars) {
+            var cwrap = document.createElement('span');
+            cwrap.className = 'cwrap' + (opts.scatter ? ' scatter' : '');
+            word.split('').forEach(function (ch, ci) {
+              var c = document.createElement('span');
+              c.className = 'c';
+              c.textContent = ch;
+              var cth = th + ci * 0.012 + r() * 0.02;
+              c.style.setProperty('--th', cth.toFixed(3));
+              c.style.setProperty('--jx', ((r() * 30 - 15)).toFixed(1) + 'px');
+              c.style.setProperty('--jy', ((r() * 24 - 12)).toFixed(1) + 'px');
+              c.style.setProperty('--jr', ((r() * 18 - 9)).toFixed(1) + 'deg');
+              cwrap.appendChild(c);
+            });
+            w.appendChild(cwrap);
+          } else if (word.indexOf('\n') !== -1) {
+            // explicit authored break point (e.g. a Thai clause boundary)
+            word.split('\n').forEach(function (part, pi, arr) {
+              w.appendChild(document.createTextNode(part));
+              if (pi < arr.length - 1) w.appendChild(document.createElement('br'));
+            });
+          } else {
+            w.textContent = word;
+          }
+          visual.appendChild(w);
+          visual.appendChild(document.createTextNode(' '));
+        });
+        el.appendChild(visual);
+      }
+      /* ---------------- i18n ---------------- */
+      var I18N = {
+        en: {
+          'nav.services': 'Services', 'nav.process': 'How we work', 'nav.work': 'Work', 'nav.about': 'About', 'nav.faq': 'FAQ',
+          'cta.startProject': 'Start a project', 'cta.seeWork': 'See our work', 'cta.sendItOver': 'Send it over',
+          'hero.eyebrow': 'ASTOMIQ · SOFTWARE HOUSE',
+          'hero.band1.h': 'We build software to the tolerance it deserves.',
+          'hero.band2.eyebrow': 'INSIDE THE BUILD',
+          'hero.band2.p': 'No off-the-shelf guesses. We go straight to the components that make your product work.',
+          'hero.band3.eyebrow': 'DOWN TO THE CODE',
+          'hero.band3.h': 'Every line written on purpose, measured against the spec, not the demo.',
+          'hero.band4.eyebrow': 'READY',
+          'hero.band4.h': 'Precision, delivered.',
+          'hero.band4.p': 'Custom software built to spec, on schedule, made to last.',
+          'static.p': 'ASTOMIQ builds custom software to the tolerance it deserves: web and mobile apps, cloud systems, and AI, calibrated to your product and shipped on schedule.',
+          'services.kicker': 'WHAT WE BUILD', 'services.h2': 'Six ways to put a working build in your hands.',
+          'services.p': 'Pick one, or hand us the whole problem. Every engagement starts with the same question: what does this actually need to do.',
+          'services.1.h': 'Custom Software Development', 'services.1.p': 'Applications built from your spec, not a template. We write the code your product actually needs, and nothing it doesn’t.',
+          'services.2.h': 'Web & Mobile Apps', 'services.2.p': 'Fast, accessible interfaces for the browser and the phone in your pocket.',
+          'services.3.h': 'Cloud & DevOps', 'services.3.p': 'Infrastructure that scales when you need it and stays quiet, and cheap, when you don’t.',
+          'services.4.h': 'AI & Data Engineering', 'services.4.p': 'Pipelines and models built on your own data, tuned to your numbers instead of a generic benchmark.',
+          'services.5.h': 'Product Consulting', 'services.5.p': 'We help you find the right scope before a single line of code gets written.',
+          'services.6.h': 'Dedicated Teams', 'services.6.p': 'Engineers who work inside your team, on your schedule, for as long as you need them.',
+          'process.kicker': 'HOW WE WORK', 'process.h2': 'Five steps. Nothing hidden between them.',
+          'process.p': 'The same process on a two-week fix and a year-long build, sized to fit.',
+          'process.1.h': 'Discover', 'process.1.p': 'We learn the problem before we touch a keyboard.',
+          'process.2.h': 'Calibrate', 'process.2.p': 'We set the exact scope, budget, and timeline. In writing.',
+          'process.3.h': 'Build', 'process.3.p': 'Short cycles. Working software every week, not every quarter.',
+          'process.4.h': 'Verify', 'process.4.p': 'Every release is tested against the spec, not just the demo.',
+          'process.5.h': 'Ship', 'process.5.p': 'We deploy it, watch it, and stay close after launch.',
+          'work.kicker': 'REPRESENTATIVE WORK', 'work.h2': 'The kind of problem we’re built for.',
+          'work.p': 'Illustrative examples of the scope and shape of work we take on, not client case studies.',
+          'work.1.tag': 'LOGISTICS', 'work.1.h': 'Dispatch platform rebuild', 'work.1.p': 'Replaced a twelve-year-old dispatch system with a real-time platform. Same team, half the manual work.',
+          'work.2.tag': 'FINTECH', 'work.2.h': 'Reporting pipeline', 'work.2.p': 'Built a data pipeline that turns a week of manual reconciliation into an overnight job.',
+          'work.3.tag': 'HEALTHCARE', 'work.3.h': 'Clinic scheduling system', 'work.3.p': 'Designed a booking system that cut no-shows and gave front-desk staff their afternoons back.',
+          'stack.kicker': 'TOOLS OF THE TRADE', 'stack.h2': 'Instruments we trust, not whatever’s trending.',
+          'stack.languages': 'Languages', 'stack.frontend': 'Frontend', 'stack.backend': 'Backend', 'stack.cloud': 'Cloud', 'stack.aidata': 'AI & Data',
+          'about.kicker': 'ABOUT ASTOMIQ', 'about.h2': 'We treat every build like an instrument, not an experiment.',
+          'about.p1': 'ASTOMIQ is a software house for teams who are done guessing. We come from product engineering, not just outsourcing: every project gets a real spec, a real timeline, and a team that stays until it’s calibrated to what you actually needed.',
+          'about.p2': 'We’re small on purpose. Every engagement gets senior engineers, not a rotating cast, and a single point of contact who can answer for the whole build.',
+          'faq.kicker': 'QUESTIONS', 'faq.h2': 'What people ask before they start.',
+          'faq.1.q': 'How long does a project take?', 'faq.1.a': 'Most builds run eight to sixteen weeks, in shippable stages. A focused fix can land in two. We give you a real date at the Calibrate step, not a guess.',
+          'faq.2.q': 'What does it cost?', 'faq.2.a': 'It depends on scope, so we quote after Discover, not before it. You get a fixed number for a fixed scope, or a weekly rate for an open-ended team, your choice.',
+          'faq.3.q': 'Who owns the code?', 'faq.3.a': 'You do. Full source, full rights, transferred at each milestone, not held back until the end.',
+          'faq.4.q': 'Do you work with early-stage products?', 'faq.4.a': 'Yes. We’ll tell you honestly if you need a prototype before a production build, even when that means a smaller first invoice.',
+          'faq.5.q': 'What if our spec changes mid-build?', 'faq.5.a': 'Specs change. We re-calibrate scope and timeline together at the start of the next cycle, in writing, instead of quietly absorbing it or quietly stalling.',
+          'contact.kicker': 'START A PROJECT', 'contact.h2': 'Tell us what you’re building.',
+          'contact.p': 'Send the shape of the problem. We’ll reply with next steps, not a sales call.',
+          'contact.name': 'Name', 'contact.email': 'Email', 'contact.details': 'Project details',
+          'contact.formmsg': 'Opening your email app with this filled in. If nothing opens, email us directly instead.',
+          'contact.responseTime.h': 'Response time', 'contact.responseTime.p': 'Within one business day.',
+          'contact.remote.h': 'Working remotely', 'contact.remote.p': 'Distributed team, working across time zones with you.',
+          'footer.tagline': 'Software built to the tolerance it deserves.', 'footer.rights': 'All rights reserved.',
+          'footer.builtAs': 'Built as one continuous instrument.',
+          'skip.link': 'Skip to content',
+          'mail.subject': 'New project inquiry from ', 'mail.fallbackName': 'the ASTOMIQ site', 'mail.name': 'Name', 'mail.email': 'Email'
+        },
+        th: {
+          'nav.services': 'บริการ', 'nav.process': 'วิธีการทำงาน', 'nav.work': 'ผลงาน', 'nav.about': 'เกี่ยวกับเรา', 'nav.faq': 'คำถาม',
+          'cta.startProject': 'เริ่มโปรเจกต์', 'cta.seeWork': 'ดูผลงานของเรา', 'cta.sendItOver': 'ส่งข้อความ',
+          'hero.eyebrow': 'ASTOMIQ · บริษัทซอฟต์แวร์',
+          'hero.band1.h': 'เราสร้างซอฟต์แวร์ด้วยความละเอียดที่มันควรได้รับ',
+          'hero.band2.eyebrow': 'ภายในกระบวนการสร้าง',
+          'hero.band2.p': 'ไม่มีการเดาแบบสำเร็จรูป เราลงลึกถึงองค์ประกอบที่ทำให้โปรดักต์ของคุณทำงานได้จริง',
+          'hero.band3.eyebrow': 'ลงลึกถึงโค้ด',
+          'hero.band3.h': 'ทุกบรรทัดถูกเขียนอย่างตั้งใจ\nวัดผลกับสเปกจริง ไม่ใช่แค่เดโม',
+          'hero.band4.eyebrow': 'พร้อมแล้ว',
+          'hero.band4.h': 'ความแม่นยำ ที่ส่งมอบได้จริง',
+          'hero.band4.p': 'ซอฟต์แวร์ที่สร้างตามสเปก ตรงเวลา และใช้งานได้ยาว',
+          'static.p': 'ASTOMIQ สร้างซอฟต์แวร์ตามสั่งด้วยความละเอียดที่มันควรได้รับ ทั้งเว็บ แอปมือถือ ระบบคลาวด์ และ AI ปรับให้เข้ากับโปรดักต์ของคุณและส่งมอบตรงเวลา',
+          'services.kicker': 'สิ่งที่เราสร้าง', 'services.h2': 'หกวิธีที่เราส่งมอบงานที่ใช้งานได้จริงถึงมือคุณ',
+          'services.p': 'เลือกได้ข้อเดียว หรือยกโจทย์ทั้งหมดมาให้เราก็ได้ ทุกงานเริ่มจากคำถามเดียวกัน สิ่งนี้ต้องทำอะไรได้บ้าง',
+          'services.1.h': 'พัฒนาซอฟต์แวร์ตามสั่ง', 'services.1.p': 'แอปพลิเคชันที่สร้างจากสเปกของคุณ ไม่ใช่เทมเพลตสำเร็จรูป เราเขียนโค้ดเฉพาะที่โปรดักต์คุณต้องการจริง ไม่มีส่วนเกิน',
+          'services.2.h': 'เว็บแอปและแอปมือถือ', 'services.2.p': 'อินเทอร์เฟซที่เร็วและเข้าถึงง่าย ทั้งบนเบราว์เซอร์และมือถือในกระเป๋าคุณ',
+          'services.3.h': 'คลาวด์และ DevOps', 'services.3.p': 'โครงสร้างพื้นฐานที่ขยายได้เมื่อคุณต้องการ และประหยัดเงียบ ๆ เมื่อไม่ได้ใช้',
+          'services.4.h': 'AI และวิศวกรรมข้อมูล', 'services.4.p': 'ไปป์ไลน์และโมเดลที่สร้างจากข้อมูลของคุณเอง ปรับจูนตามตัวเลขจริง ไม่ใช่เกณฑ์มาตรฐานทั่วไป',
+          'services.5.h': 'ที่ปรึกษาด้านโปรดักต์', 'services.5.p': 'เราช่วยหาขอบเขตงานที่ถูกต้อง ก่อนจะเขียนโค้ดแม้แต่บรรทัดเดียว',
+          'services.6.h': 'ทีมงานประจำโปรเจกต์', 'services.6.p': 'วิศวกรที่ทำงานร่วมกับทีมคุณ ตามตารางของคุณ นานเท่าที่คุณต้องการ',
+          'process.kicker': 'วิธีการทำงานของเรา', 'process.h2': 'ห้าขั้นตอน ไม่มีอะไรซ่อนอยู่ระหว่างทาง',
+          'process.p': 'กระบวนการเดียวกัน ไม่ว่าจะเป็นงานแก้ไขสองสัปดาห์หรือโปรเจกต์ยาวเป็นปี ปรับขนาดให้พอดีกับงาน',
+          'process.1.h': 'สำรวจปัญหา', 'process.1.p': 'เราทำความเข้าใจปัญหาก่อนแตะคีย์บอร์ดแม้แต่ครั้งเดียว',
+          'process.2.h': 'กำหนดขอบเขต', 'process.2.p': 'เรากำหนดขอบเขตงาน งบประมาณ และไทม์ไลน์ที่ชัดเจน เป็นลายลักษณ์อักษร',
+          'process.3.h': 'ลงมือสร้าง', 'process.3.p': 'รอบสั้น ๆ ได้ซอฟต์แวร์ที่ใช้งานได้จริงทุกสัปดาห์ ไม่ใช่ทุกไตรมาส',
+          'process.4.h': 'ตรวจสอบ', 'process.4.p': 'ทุกรีลีสถูกทดสอบเทียบกับสเปกจริง ไม่ใช่แค่เดโม',
+          'process.5.h': 'ส่งมอบ', 'process.5.p': 'เรา deploy ระบบ เฝ้าดูผลลัพธ์ และอยู่เคียงข้างคุณหลังเปิดใช้งาน',
+          'work.kicker': 'ตัวอย่างผลงาน', 'work.h2': 'โจทย์แบบที่เราถนัด',
+          'work.p': 'ตัวอย่างขอบเขตและรูปแบบงานที่เรารับทำ ไม่ใช่เคสจริงของลูกค้า',
+          'work.1.tag': 'โลจิสติกส์', 'work.1.h': 'รื้อระบบจัดส่งงานใหม่', 'work.1.p': 'แทนที่ระบบจัดส่งงานอายุสิบสองปีด้วยแพลตฟอร์มเรียลไทม์ ทีมเดิม แต่งานที่ต้องทำมือลดลงครึ่งหนึ่ง',
+          'work.2.tag': 'ฟินเทค', 'work.2.h': 'ระบบไปป์ไลน์รายงาน', 'work.2.p': 'สร้างไปป์ไลน์ข้อมูลที่เปลี่ยนงานกระทบยอดหนึ่งสัปดาห์ให้เสร็จข้ามคืน',
+          'work.3.tag': 'สาธารณสุข', 'work.3.h': 'ระบบจองคิวคลินิก', 'work.3.p': 'ออกแบบระบบจองคิวที่ลดการเบี้ยวนัด และคืนเวลาช่วงบ่ายให้พนักงานหน้าเคาน์เตอร์',
+          'stack.kicker': 'เครื่องมือที่เราใช้', 'stack.h2': 'เครื่องมือที่เราเชื่อถือ ไม่ใช่แค่สิ่งที่กำลังฮิต',
+          'stack.languages': 'ภาษาโปรแกรม', 'stack.frontend': 'ฟรอนต์เอนด์', 'stack.backend': 'แบ็กเอนด์', 'stack.cloud': 'คลาวด์', 'stack.aidata': 'AI และข้อมูล',
+          'about.kicker': 'เกี่ยวกับ ASTOMIQ', 'about.h2': 'เราดูแลทุกงานเหมือนเครื่องมือวัดที่แม่นยำ ไม่ใช่การทดลอง',
+          'about.p1': 'ASTOMIQ คือบริษัทซอฟต์แวร์สำหรับทีมที่เลิกเดาสุ่มแล้ว เรามาจากสายงานวิศวกรรมโปรดักต์ ไม่ใช่แค่รับจ้างทำงาน ทุกโปรเจกต์ได้สเปกจริง ไทม์ไลน์จริง และทีมที่อยู่จนกว่างานจะตรงกับสิ่งที่คุณต้องการจริง ๆ',
+          'about.p2': 'เราตั้งใจให้ทีมเล็ก ทุกงานได้วิศวกรระดับซีเนียร์ ไม่ใช่คนหมุนเวียน และมีผู้ติดต่อคนเดียวที่ตอบได้ทุกเรื่องของงาน',
+          'faq.kicker': 'คำถามที่พบบ่อย', 'faq.h2': 'คำถามที่มักถูกถามก่อนเริ่มงาน',
+          'faq.1.q': 'โปรเจกต์หนึ่งใช้เวลานานแค่ไหน', 'faq.1.a': 'งานส่วนใหญ่ใช้เวลา 8-16 สัปดาห์ แบ่งส่งเป็นช่วง ๆ งานแก้ไขเฉพาะจุดอาจเสร็จใน 2 สัปดาห์ เราให้วันที่ชัดเจนตั้งแต่ขั้นตอนกำหนดขอบเขต ไม่ใช่การเดา',
+          'faq.2.q': 'ค่าใช้จ่ายเท่าไหร่', 'faq.2.a': 'ขึ้นอยู่กับขอบเขตงาน เราจะเสนอราคาหลังขั้นตอนสำรวจปัญหา ไม่ใช่ก่อนหน้านั้น คุณเลือกได้ระหว่างราคาคงที่สำหรับขอบเขตที่แน่นอน หรืออัตรารายสัปดาห์สำหรับทีมแบบเปิดกว้าง',
+          'faq.3.q': 'โค้ดเป็นของใคร', 'faq.3.a': 'เป็นของคุณทั้งหมด ซอร์สโค้ดครบ สิทธิ์เต็ม โอนให้ทุกช่วงหลักไมล์ ไม่ใช่กั๊กไว้จนจบงาน',
+          'faq.4.q': 'รับงานผลิตภัณฑ์ในช่วงเริ่มต้นไหม', 'faq.4.a': 'รับครับ เราจะบอกตรง ๆ ถ้าคุณควรทำต้นแบบก่อนสร้างระบบจริง แม้จะหมายถึงใบแจ้งหนี้แรกจะเล็กลงก็ตาม',
+          'faq.5.q': 'ถ้าสเปกเปลี่ยนกลางทางล่ะ', 'faq.5.a': 'สเปกเปลี่ยนได้เสมอ เราจะปรับขอบเขตและไทม์ไลน์ร่วมกันใหม่ตอนเริ่มรอบถัดไป เป็นลายลักษณ์อักษร แทนที่จะแบกรับเงียบ ๆ หรือปล่อยงานช้าเงียบ ๆ',
+          'contact.kicker': 'เริ่มโปรเจกต์', 'contact.h2': 'บอกเราว่าคุณกำลังสร้างอะไร',
+          'contact.p': 'ส่งรายละเอียดปัญหาของคุณมา เราจะตอบกลับพร้อมขั้นตอนถัดไป ไม่ใช่โทรมาขายของ',
+          'contact.name': 'ชื่อ', 'contact.email': 'อีเมล', 'contact.details': 'รายละเอียดโปรเจกต์',
+          'contact.formmsg': 'กำลังเปิดแอปอีเมลพร้อมกรอกข้อมูลให้แล้ว ถ้าไม่มีอะไรเปิดขึ้นมา ส่งอีเมลหาเราโดยตรงได้เลย',
+          'contact.responseTime.h': 'เวลาตอบกลับ', 'contact.responseTime.p': 'ภายในหนึ่งวันทำการ',
+          'contact.remote.h': 'ทำงานทางไกล', 'contact.remote.p': 'ทีมงานกระจายตัว ทำงานข้ามไทม์โซนร่วมกับคุณ',
+          'footer.tagline': 'ซอฟต์แวร์ที่สร้างด้วยความละเอียดที่มันควรได้รับ', 'footer.rights': 'สงวนลิขสิทธิ์',
+          'footer.builtAs': 'สร้างขึ้นเหมือนเครื่องมือวัดชิ้นเดียวที่ต่อเนื่องกัน',
+          'skip.link': 'ข้ามไปยังเนื้อหา',
+          'mail.subject': 'มีคนสนใจโปรเจกต์จาก ', 'mail.fallbackName': 'เว็บไซต์ ASTOMIQ', 'mail.name': 'ชื่อ', 'mail.email': 'อีเมล'
+        }
+      };
+
+      var currentLang = localStorage.getItem('astomiq-lang') || 'en';
+      function t(key) { return (I18N[currentLang] && I18N[currentLang][key]) || I18N.en[key] || key; }
+
+      function applyLanguage(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+        try { localStorage.setItem('astomiq-lang', lang); } catch (e) { }
+
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          el.textContent = t(el.getAttribute('data-i18n'));
+        });
+
+        document.getElementById('band1-h').textContent = t('hero.band1.h');
+        splitWords(document.getElementById('band1-h'), lang === 'th' ? { wholeUnit: true } : {});
+        document.getElementById('band3-h').textContent = t('hero.band3.h');
+        // Character-level splitting breaks Thai combining marks (vowels/tone marks
+        // detach from their base consonant), so only scatter-split for scripts
+        // that are safe to split by JS string character (Latin text here).
+        splitWords(document.getElementById('band3-h'), lang === 'th' ? { seed: 19, wholeUnit: true } : { seed: 19, chars: true, scatter: true });
+        document.getElementById('band4-h').textContent = t('hero.band4.h');
+        splitWords(document.getElementById('band4-h'), lang === 'th' ? { wholeUnit: true } : {});
+
+        document.getElementById('copyrightLine').textContent = '© ' + CURRENT_YEAR + ' ASTOMIQ. ' + t('footer.rights');
+
+        document.querySelectorAll('.faqitem.open .faqa').forEach(function (a) { a.style.maxHeight = a.scrollHeight + 'px'; });
+
+        var label = document.getElementById('langToggleLabel');
+        if (label) label.textContent = lang.toUpperCase();
+        var toggleBtn = document.getElementById('langToggle');
+        if (toggleBtn) toggleBtn.setAttribute('aria-label', lang === 'en' ? 'Switch to Thai' : 'Switch to English');
+      }
+
+      var langToggleBtn = document.getElementById('langToggle');
+      if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', function () {
+          applyLanguage(currentLang === 'en' ? 'th' : 'en');
+        });
+      }
+      applyLanguage(currentLang);
+
+      /* ---------------- how we work: one step revealed at a time, scroll-driven ---------------- */
+      (function () {
+        var pin = document.getElementById('stepsPin');
+        if (!pin) return;
+        var panels = Array.prototype.slice.call(pin.querySelectorAll('.step-panel'));
+        var dots = Array.prototype.slice.call(pin.querySelectorAll('.step-dot'));
+        var total = panels.length;
+        if (!total) return;
+        var activeIdx = -1;
+        var chevron = document.getElementById('stepsChevron');
+
+        function setActive(idx) {
+          if (idx === activeIdx) return;
+          activeIdx = idx;
+          panels.forEach(function (p, i) { p.classList.toggle('active', i === idx); });
+          dots.forEach(function (d, i) {
+            d.classList.toggle('active', i === idx);
+            if (i <= idx) d.classList.add('seen');
+          });
+          if (chevron) chevron.classList.toggle('hide', idx === total - 1);
+        }
+
+        function stepsProgress() {
+          var rect = pin.getBoundingClientRect();
+          var total2 = pin.offsetHeight - window.innerHeight;
+          if (total2 <= 0) return 0;
+          return Math.min(1, Math.max(0, -rect.top / total2));
+        }
+
+        var ticking = false;
+        function onStepsScroll() {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(function () {
+            var idx = Math.min(total - 1, Math.floor(stepsProgress() * total));
+            setActive(idx);
+            ticking = false;
+          });
+        }
+        addEventListener('scroll', onStepsScroll, { passive: true });
+        onStepsScroll();
+      })();
+
+      /* ---------------- particles (whisper level, decorative sections) ---------------- */
+      (function () {
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var host = document.getElementById('services');
+        if (!host) return;
+        var layer = document.createElement('div');
+        layer.className = 'particles';
+        layer.setAttribute('aria-hidden', 'true');
+        var r = rng(3);
+        for (var i = 0; i < 14; i++) {
+          var s = document.createElement('span');
+          s.style.left = (r() * 100).toFixed(1) + '%';
+          s.style.top = (60 + r() * 35).toFixed(1) + '%';
+          s.style.animationDelay = (-(r() * 14)).toFixed(1) + 's';
+          s.style.animationDuration = (10 + r() * 8).toFixed(1) + 's';
+          layer.appendChild(s);
+        }
+        host.style.position = host.style.position || 'relative';
+        host.insertBefore(layer, host.firstChild);
+      })();
+
+      /* ---------------- custom cursor + magnetic hover ---------------- */
+      (function () {
+        if (!matchMedia('(pointer: fine)').matches) return;
+        var dot = document.createElement('div'); dot.className = 'cursor-dot'; dot.setAttribute('aria-hidden', 'true');
+        var ring = document.createElement('div'); ring.className = 'cursor-ring'; ring.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(dot);
+        document.body.appendChild(ring);
+        document.body.classList.add('custom-cursor');
+
+        var mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my, shown = false;
+        addEventListener('mousemove', function (e) {
+          mx = e.clientX; my = e.clientY;
+          if (!shown) { shown = true; dot.style.opacity = '1'; ring.style.opacity = '1'; }
+        }, { passive: true });
+        addEventListener('mouseleave', function () { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+
+        function raf() {
+          rx += (mx - rx) * 0.18;
+          ry += (my - ry) * 0.18;
+          dot.style.transform = 'translate(' + mx.toFixed(1) + 'px,' + my.toFixed(1) + 'px) translate(-50%,-50%)';
+          ring.style.left = rx.toFixed(1) + 'px';
+          ring.style.top = ry.toFixed(1) + 'px';
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        var hoverSel = 'a, button, .card, .workcard, .chip, input, textarea, .faqq';
+        document.addEventListener('mouseover', function (e) { if (e.target.closest(hoverSel)) ring.classList.add('hover'); });
+        document.addEventListener('mouseout', function (e) { if (e.target.closest(hoverSel)) ring.classList.remove('hover'); });
+
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.querySelectorAll('.bento .card, .workcard').forEach(function (el) {
+            el.addEventListener('mousemove', function (e) {
+              var r = el.getBoundingClientRect();
+              var relX = e.clientX - r.left - r.width / 2;
+              var relY = e.clientY - r.top - r.height / 2;
+              el.style.transform = 'translate(' + (relX * 0.05).toFixed(1) + 'px,' + (relY * 0.05).toFixed(1) + 'px)';
+            });
+            el.addEventListener('mouseleave', function () { el.style.transform = ''; });
+          });
+        }
+      })();
+
+    })();
+  </script>
 </body>
+
 </html>
